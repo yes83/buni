@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buni - Your AI Comfort Companion</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/face-api.js/1.3.2/face-api.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        #video {
+            width: 300px;
+            height: 250px;
+            border: 2px solid black;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Buni - Your AI Comfort Companion</h1>
+    <p>How are you feeling today?</p>
+    <button onclick="playMessage('Everything will be okay. You are strong!')">I'm Stressed</button>
+    <button onclick="playMessage('Keep smiling! You are doing great!')">I'm Sad</button>
+    <button onclick="playMessage('Take a deep breath. Relax.')">I'm Anxious</button>
+    
+    <h3>Facial Emotion Detection (Optional)</h3>
+    <video id="video" autoplay></video>
+    <p id="message">Detecting emotion...</p>
+    
+    <script>
+        async function playMessage(text) {
+            let speech = new SpeechSynthesisUtterance(text);
+            speech.lang = 'en-US';
+            speech.rate = 1;
+            speechSynthesis.speak(speech);
+        }
+
+        async function startFaceDetection() {
+            const video = document.getElementById('video');
+            const message = document.getElementById('message');
+            
+            const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
+            video.srcObject = stream;
+
+            await faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js/models');
+            await faceapi.nets.faceExpressionNet.loadFromUri('https://cdn.jsdelivr.net/gh/justadudewhohacks/face-api.js/models');
+            
+            video.addEventListener('play', async () => {
+                setInterval(async () => {
+                    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
+                    if (detections.length > 0) {
+                        const emotions = detections[0].expressions;
+                        const maxEmotion = Object.keys(emotions).reduce((a, b) => emotions[a] > emotions[b] ? a : b);
+                        message.innerText = `Detected emotion: ${maxEmotion}`;
+                        if (maxEmotion === 'sad') playMessage('You are not alone. Everything will be okay.');
+                        if (maxEmotion === 'happy') playMessage('Keep smiling! You are doing great!');
+                        if (maxEmotion === 'angry') playMessage('Take a deep breath and stay calm.');
+                    }
+                }, 3000);
+            });
+        }
+
+        startFaceDetection();
+    </script>
+</body>
+</html>
