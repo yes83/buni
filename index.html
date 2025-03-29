@@ -5,24 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buni - Your Stress Companion</title>
     <style>
-        :root {
-            --bg-light: #f0f8ff;
-            --bg-dark: #222;
-            --text-light: #333;
-            --text-dark: #f0f0f0;
-            --accent: #ffab40;
-            --hover: #ff9800;
-        }
-
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: var(--bg-light);
-            color: var(--text-light);
-            transition: background-color 0.5s, color 0.5s;
+            background-color: #f0f8ff; /* Light background */
+            background-image: url('https://example.com/bunny-pattern.png'); /* Bunny-themed background */
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: #333;
         }
-
         header {
             text-align: center;
             padding: 30px;
@@ -31,192 +23,207 @@
             margin-bottom: 20px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-
         h1 {
-            font-family: 'Comic Sans MS', cursive;
-            color: #d45d00;
+            font-family: 'Comic Sans MS', cursive; /* Playful font for headings */
+            color: #d45d00; /* A warm color for headings */
         }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        main {
+            margin: 20px auto;
             max-width: 600px;
-            margin: auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1s ease-in-out; /* Animation for the main area */
         }
-
-        .button-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
         button {
-            background: var(--accent);
+            background-color: #ffab40;
             color: white;
             border: none;
             padding: 15px 25px;
             border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s;
             font-size: 16px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-
         button:hover {
-            background: var(--hover);
-            transform: scale(1.05);
+            background-color: #ff9800;
+            transform: scale(1.05); /* Slightly enlarge button on hover */
         }
-
         .survey {
             display: none;
-            width: 100%;
             margin-top: 20px;
             border-radius: 15px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.8);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s, transform 0.5s;
         }
-
-        textarea, input {
+        textarea {
             width: 100%;
-            margin-top: 10px;
+            height: 80px;
+            margin: 10px 0;
             border-radius: 10px;
+            border: 1px solid #ccc;
             padding: 10px;
             font-size: 14px;
-            border: 1px solid #ccc;
         }
-
-        textarea:focus, input:focus {
+        textarea:focus {
             outline: none;
-            border-color: var(--accent);
+            border-color: #ffab40; /* Highlight border on focus */
         }
-
         footer {
             margin-top: 30px;
             font-size: 12px;
             color: #777;
-            text-align: center;
-        }
-
-        #darkModeToggle {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #444;
-            padding: 10px;
-            border-radius: 50%;
-            cursor: pointer;
-        }
-
-        /* Dark Mode */
-        body.dark-mode {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
-
-        body.dark-mode .survey {
-            background: rgba(50, 50, 50, 0.9);
         }
     </style>
 </head>
 <body>
 
-<div id="darkModeToggle">🌙</div>
-
 <header>
     <h1>Buni - Your Stress Companion</h1>
     <p>Helping you promote mindfulness, balance, and resilience.</p>
+    <img src="https://i.imgur.com/XbNYvJG.png" alt="Bunny Icon" style="width: 100px;"/> <!-- Bunny icon -->
 </header>
 
-<div class="container">
+<main>
     <h2>How Are You Feeling?</h2>
-    <div class="button-container">
-        <button onclick="showSurvey('anxious')">Anxious</button>
-        <button onclick="showSurvey('stressed')">Stressed</button>
-        <button onclick="showSurvey('unsure')">Unsure</button>
-    </div>
-
+    <button onclick="showSurvey('anxious')">Anxious</button>
+    <button onclick="showSurvey('stressed')">Stressed</button>
+    <button onclick="showSurvey('unsure')">Unsure</button>
+    
     <div id="survey-anxious" class="survey">
         <h3>Anxiety Survey</h3>
-        <label>On a scale of 1 to 10, how anxious are you?</label>
+        <label for="stressLevelAnxious">On a scale of 1 to 10, how anxious are you?</label><br>
         <input type="number" id="stressLevelAnxious" min="1" max="10"><br>
-        <textarea id="openEndedAnxious" placeholder="What triggers your anxiety?"></textarea><br>
+        <label for="openEndedAnxious">What triggers your anxiety?</label>
+        <textarea id="openEndedAnxious" placeholder="Share your thoughts..."></textarea><br>
+        <label for="copingStrategiesAnxious">What coping strategies do you currently use?</label>
+        <textarea id="copingStrategiesAnxious" placeholder="Share your strategies..."></textarea><br>
         <button onclick="analyzeStress('anxious')">Submit</button>
     </div>
 
     <div id="survey-stressed" class="survey">
         <h3>Stress Survey</h3>
-        <label>On a scale of 1 to 10, how stressed are you?</label>
+        <label for="stressLevelStressed">On a scale of 1 to 10, how stressed are you?</label><br>
         <input type="number" id="stressLevelStressed" min="1" max="10"><br>
-        <textarea id="openEndedStressed" placeholder="What’s currently stressing you out?"></textarea><br>
+        <label for="openEndedStressed">What’s currently stressing you out?</label>
+        <textarea id="openEndedStressed" placeholder="Share your thoughts..."></textarea><br>
+        <label for="supportSystemStressed">Who do you turn to for support?</label>
+        <textarea id="supportSystemStressed" placeholder="Share your support system..."></textarea><br>
         <button onclick="analyzeStress('stressed')">Submit</button>
     </div>
 
     <div id="survey-unsure" class="survey">
-        <h3>Uncertainty Survey</h3>
-        <label>On a scale of 1 to 10, how uncertain are you?</label>
+        <h3>Unsure Survey</h3>
+        <label for="stressLevelUnsure">On a scale of 1 to 10, how uncertain are you feeling?</label><br>
         <input type="number" id="stressLevelUnsure" min="1" max="10"><br>
-        <textarea id="openEndedUnsure" placeholder="What are you feeling unsure about?"></textarea><br>
+        <label for="openEndedUnsure">What are you feeling unsure about?</label>
+        <textarea id="openEndedUnsure" placeholder="Share your thoughts..."></textarea><br>
+        <label for="clarityStrategiesUnsure">What helps you gain clarity?</label>
+        <textarea id="clarityStrategiesUnsure" placeholder="Share your strategies..."></textarea><br>
         <button onclick="analyzeStress('unsure')">Submit</button>
     </div>
 
     <p id="response"></p>
-</div>
+</main>
 
 <footer>
-    <p>🐰 Thank you for using Buni! 🐰</p>
+    <p>🐰 Thank you for using Buni! 🐰</p> 
 </footer>
 
 <script>
-    function showSurvey(type) {
-        document.querySelectorAll('.survey').forEach(survey => {
-            survey.style.display = 'none';
-            survey.style.opacity = '0';
-            survey.style.transform = 'translateY(20px)';
-        });
+    function playMessage(message) {
+        const utterance = new SpeechSynthesisUtterance(message);
+        utterance.voice = speechSynthesis.getVoices().find(voice => voice.name === 'Google US English'); // Change this to a more human-like voice if available
+        window.speechSynthesis.speak(utterance);
+    }
 
-        let survey = document.getElementById(`survey-${type}`);
-        survey.style.display = 'block';
-        setTimeout(() => {
-            survey.style.opacity = '1';
-            survey.style.transform = 'translateY(0)';
-        }, 10);
+    function showSurvey(type) {
+        document.querySelectorAll('.survey').forEach(survey => survey.style.display = 'none');
+        document.getElementById(`survey-${type}`).style.display = 'block';
     }
 
     function analyzeStress(type) {
-        let level = document.getElementById(`stressLevel${type.charAt(0).toUpperCase() + type.slice(1)}`).value;
-        let openEndedResponse = document.getElementById(`openEnded${type.charAt(0).toUpperCase() + type.slice(1)}`).value;
+        let level, openEndedResponse, additionalResponse, responseMessage = '';
 
-        let responseMessage = `You rated your ${type} at ${level}. Reflecting on "${openEndedResponse}" can help!`;
+        if (type === 'anxious') {
+            level = document.getElementById('stressLevelAnxious').value;
+            openEndedResponse = document.getElementById('openEndedAnxious').value;
+            additionalResponse = document.getElementById('copingStrategiesAnxious').value;
+
+            responseMessage = generateAIResponse(level, openEndedResponse, additionalResponse, 'anxiety');
+        }
+
+        if (type === 'stressed') {
+            level = document.getElementById('stressLevelStressed').value;
+            openEndedResponse = document.getElementById('openEndedStressed').value;
+            additionalResponse = document.getElementById('supportSystemStressed').value;
+
+            responseMessage = generateAIResponse(level, openEndedResponse, additionalResponse, 'stress');
+        }
+
+        if (type === 'unsure') {
+            level = document.getElementById('stressLevelUnsure').value;
+            openEndedResponse = document.getElementById('openEndedUnsure').value;
+            additionalResponse = document.getElementById('clarityStrategiesUnsure').value;
+
+            responseMessage = generateAIResponse(level, openEndedResponse, additionalResponse, 'unsure');
+        }
 
         document.getElementById('response').innerText = responseMessage;
         playMessage(responseMessage);
     }
 
-    function playMessage(message) {
-        let utterance = new SpeechSynthesisUtterance(message);
-        utterance.voice = speechSynthesis.getVoices().find(voice => voice.name.includes('English'));
-        window.speechSynthesis.speak(utterance);
+    function generateAIResponse(level, openEndedResponse, additionalResponse, type) {
+        let response = '';
+
+        if (type === 'anxiety') {
+            response += `Your anxiety level is ${level}. `;
+            if (level <= 3) {
+                response += "That's wonderful! It's great to maintain a calm mindset. Consider continuing your positive routines.";
+            } else if (level <= 7) {
+                response += `It's common to feel anxious. Identifying triggers like: "${openEndedResponse}" can help you manage these feelings. `;
+                response += `You mentioned coping strategies such as: "${additionalResponse}". These are valuable tools! Try to incorporate them regularly.`;
+            } else {
+                response += `High anxiety levels can be overwhelming. It's okay to seek support. Remember, acknowledging feelings is the first step. Consider reaching out to someone who can help you navigate these feelings.`;
+            }
+        }
+
+        if (type === 'stress') {
+            response += `Your stress level is ${level}. `;
+            if (level <= 3) {
+                response += "Fantastic! Keep nurturing your well-being and continue doing what brings you joy.";
+            } else if (level <= 7) {
+                response += `It's perfectly normal to feel stressed. You mentioned that you're stressed because: "${openEndedResponse}". `;
+                response += `Having a support system like "${additionalResponse}" is essential to cope with these challenges. Lean on them when times get tough.`;
+            } else {
+                response += `It's crucial to seek support when stress levels are high. You mentioned feeling stressed due to: "${openEndedResponse}". `;
+                response += `Remember that having a support network like "${additionalResponse}" can make a significant difference in managing your stress. Don't hesitate to reach out for help.`;
+            }
+        }
+
+        if (type === 'unsure') {
+            response += `Your uncertainty level is ${level}. `;
+            if (level <= 3) {
+                response += "It's completely normal to feel uncertain at times. Reflecting on your thoughts can often bring clarity.";
+            } else if (level <= 7) {
+                response += `Feeling unsure about: "${openEndedResponse}" is common. Consider discussing it with someone who can provide perspective. `;
+                response += `Finding clarity through activities you mentioned, like "${additionalResponse}", could also help. Consider incorporating them into your routine.`;
+            } else {
+                response += `High levels of uncertainty can be distressing. It's important to seek guidance when needed. Acknowledging your feelings is vital. You mentioned ways to gain clarity like: "${additionalResponse}". Keep practicing those strategies.`;
+            }
+        }
+
+        return response;
     }
-
-    document.getElementById('darkModeToggle').addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-    });
-
-    window.onload = () => {
-        setTimeout(() => {
-            let voices = speechSynthesis.getVoices();
-            console.log(voices);
-        }, 500);
-    };
 </script>
 
 </body>
 </html>
-
