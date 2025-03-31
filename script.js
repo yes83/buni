@@ -9,10 +9,7 @@ function submitSurvey(type) {
 
 // Chat Functionality
 function openChat() {
-    let chatPopup = document.getElementById("chat-popup");
-    chatPopup.style.display = "block";
-    chatPopup.style.left = "50%";
-    chatPopup.style.top = "50%";
+    document.getElementById("chat-popup").style.display = "block";
 }
 
 function closeChat() {
@@ -25,43 +22,20 @@ function sendMessage() {
 
     if (userInput.trim() === "") return;
 
-    let userMessage = `<p style="text-align:right;">${userInput}</p>`;
-    chatBody.innerHTML += userMessage;
+    let userMessage = document.createElement("p");
+    userMessage.textContent = userInput;
+    chatBody.appendChild(userMessage);
 
     let responses = [
         "I'm here for you! 🌸",
         "Deep breaths can help. Try it now!",
         "You are stronger than you think! 💪",
-        "Sending virtual bunny hugs! 🐰"
+        "I'm sending virtual bunny hugs! 🐰"
     ];
-    chatBody.innerHTML += `<p class="buni-text">${responses[Math.floor(Math.random() * responses.length)]}</p>`;
+    let buniMessage = document.createElement("p");
+    buniMessage.textContent = responses[Math.floor(Math.random() * responses.length)];
+    chatBody.appendChild(buniMessage);
 
     document.getElementById("user-input").value = "";
 }
-
-// Make Chat Pop-up Draggable
-let chatPopup = document.getElementById("chat-popup");
-let chatHeader = document.querySelector(".chat-header");
-
-let isDragging = false;
-let offsetX, offsetY;
-
-chatHeader.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    offsetX = e.clientX - chatPopup.getBoundingClientRect().left;
-    offsetY = e.clientY - chatPopup.getBoundingClientRect().top;
-    chatPopup.style.cursor = "grabbing";
-});
-
-document.addEventListener("mousemove", (e) => {
-    if (isDragging) {
-        chatPopup.style.left = `${e.clientX - offsetX}px`;
-        chatPopup.style.top = `${e.clientY - offsetY}px`;
-    }
-});
-
-document.addEventListener("mouseup", () => {
-    isDragging = false;
-    chatPopup.style.cursor = "grab";
-});
 
