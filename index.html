@@ -166,18 +166,7 @@
             details = document.getElementById('anxietyTriggers').value;
             responseText = 'Thank you for sharing. It\'s important to identify triggers like "' + details + '". Consider practicing mindfulness techniques to manage your anxiety.';
         } else if (feeling === 'stressed') {
-            level = document.getElementById('stressLevel').value;
-            details = document.getElementById('stressCauses').value;
-            responseText = 'Thank you for sharing. Acknowledging stressors like "' + details + '" is essential. Try to incorporate stress-relief practices into your routine.';
-        } else if (feeling === 'unsure') {
-            level = document.getElementById('uncertaintyLevel').value;
-            details = document.getElementById('uncertaintyReasons').value;
-            responseText = 'Thank you for sharing. It\'s okay to feel unsure about things like "' + details + '". Reflecting on your feelings can help you gain clarity.';
-        }
+            level = document.getElementById('stressLevel').value
+::contentReference[oaicite:3]{index=3}
+ 
 
-        document.getElementById('response').innerText = responseText;
-    }
-</script>
-
-</body>
-</html>
