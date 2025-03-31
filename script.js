@@ -47,4 +47,3 @@ function sendMessage() {
     document.getElementById("user-input").value = "";
 }
 
-
