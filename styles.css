@@ -1,48 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f8cef7, #d0aaff);
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+    background: linear-gradient(120deg, #fddde6, #c1c8ff);
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    width: 80%;
-    margin: 50px auto;
-    background: white;
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .buni-image {
-    width: 150px;
-    animation: bounce 1.5s infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    width: 100px;
+    margin-top: -30px;
 }
 
 h1 {
-    font-size: 28px;
-    color: black;
+    font-size: 32px;
+    font-weight: 800;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 8px rgba(255, 77, 109, 0.3);
+    margin-bottom: 10px;
 }
 
 p {
-    font-size: 16px;
-    color: black;
+    font-size: 18px;
+    font-weight: 400;
+    color: #555;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+    text-align: left;
+    font-size: 18px;
+    color: #555;
 }
 
-li {
-    font-size: 14px;
-    margin-bottom: 5px;
+h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ff4d6d;
+    margin-top: 20px;
 }
 
 .button-container {
@@ -50,55 +56,62 @@ li {
 }
 
 .emotion-button {
-    background: #ff66b2;
-    color: white;
+    background: #ff85a2;
     border: none;
-    padding: 12px 24px;
+    padding: 12px 25px;
     font-size: 18px;
-    border-radius: 25px;
+    font-weight: 600;
+    color: white;
+    border-radius: 30px;
     cursor: pointer;
-    margin: 5px;
     transition: 0.3s;
+    margin: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
 .emotion-button:hover {
-    background: #ff3385;
+    background: #ff4d6d;
     transform: scale(1.1);
 }
 
 .survey-box {
-    background: #fff0f5;
-    padding: 15px;
+    background: #ffeef2;
+    border-radius: 15px;
+    padding: 20px;
     margin-top: 20px;
-    border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-textarea {
+.survey-box h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff4d6d;
+}
+
+.survey-box input,
+.survey-box textarea {
     width: 80%;
-    height: 100px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 10px;
-    font-size: 14px;
+    font-size: 16px;
+    border: 2px solid #ff85a2;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 .submit-button {
-    background: #ff66b2;
-    color: white;
+    background: #ff85a2;
     border: none;
     padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    border-radius: 20px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
     transition: 0.3s;
 }
 
 .submit-button:hover {
-    background: #ff3385;
+    background: #ff4d6d;
     transform: scale(1.1);
 }
-
-
 
