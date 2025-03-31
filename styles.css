@@ -1,116 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
-    background: linear-gradient(120deg, #fddde6, #c1c8ff);
-    color: #333;
-    margin: 0;
-    padding: 0;
+    background: linear-gradient(to bottom, #f8e8ff, #ffe6f2);
 }
 
 .container {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 20px;
-    background: #fff;
-    border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
 }
 
 .buni-image {
-    width: 100px;
-    margin-top: -30px;
+    width: 120px;
+    display: block;
+    margin: 0 auto;
 }
 
-h1 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #ff4d6d;
-    text-shadow: 2px 2px 8px rgba(255, 77, 109, 0.3);
-    margin-bottom: 10px;
+.main-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ff5c8d;
+    text-shadow: 2px 2px 5px rgba(255, 92, 141, 0.5);
 }
 
-p {
-    font-size: 18px;
-    font-weight: 400;
+.subtitle {
+    font-size: 1.2em;
     color: #555;
 }
 
-ul {
-    text-align: left;
-    font-size: 18px;
-    color: #555;
-}
-
-h3 {
-    font-size: 22px;
-    font-weight: 600;
-    color: #ff4d6d;
-    margin-top: 20px;
+.choose-text {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444;
 }
 
 .button-container {
-    margin-top: 15px;
-}
-
-.emotion-button {
-    background: #ff85a2;
-    border: none;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 10px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.emotion-button:hover {
-    background: #ff4d6d;
-    transform: scale(1.1);
-}
-
-.survey-box {
-    background: #ffeef2;
-    border-radius: 15px;
-    padding: 20px;
     margin-top: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.survey-box h2 {
-    font-size: 24px;
-    font-weight: 700;
-    color: #ff4d6d;
-}
-
-.survey-box input,
-.survey-box textarea {
-    width: 80%;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ff85a2;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.submit-button {
-    background: #ff85a2;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
+.emotion-button, .chat-button {
+    background: #ff80a6;
     color: white;
+    font-size: 18px;
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
     border-radius: 20px;
     cursor: pointer;
-    margin-top: 15px;
     transition: 0.3s;
 }
 
-.submit-button:hover {
-    background: #ff4d6d;
-    transform: scale(1.1);
+.emotion-button:hover, .chat-button:hover {
+    background: #ff5c8d;
 }
+
+/* Chat Popup */
+.chat-popup {
+    display: none;
+    position: fixed;
+    bottom: 50px;
+    right: 20px;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.chat-box h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+#chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#chat-input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+button {
+    width: 100%;
+    background: #ff80a6;
+    color: white;
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+button.close-btn {
+    background: #ccc;
+    margin-top: 5px;
+}
+
