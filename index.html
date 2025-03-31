@@ -4,169 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buni - Your Stress Companion</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f8ff;
-            color: #333;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            border: 3px solid #ff9aa2;
-        }
-        h1 {
-            font-family: 'Comic Sans MS', cursive;
-            color: #d45d00;
-        }
-        .subtitle {
-            font-weight: bold;
-            font-size: 18px;
-            color: #555;
-        }
-        .bunny-img {
-            width: 120px;
-        }
-        .description {
-            text-align: left;
-            font-size: 16px;
-            margin: 10px 0;
-        }
-        .button-container {
-            margin-top: 20px;
-        }
-        .button {
-            background-color: #ff9aa2;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 5px;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background-color: #ff7f88;
-        }
-        .survey {
-            display: none;
-            margin-top: 20px;
-            text-align: left;
-        }
-        .survey label {
-            font-weight: bold;
-        }
-        .survey input[type="number"],
-        .survey textarea {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-        .survey button {
-            background-color: #ffab40;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 14px;
-            transition: 0.3s;
-        }
-        .survey button:hover {
-            background-color: #ff9800;
-        }
-        #response {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #333;
-            text-align: left;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-<div class="container">
-    <img src="https://i.imgur.com/XbNYvJG.png" alt="Bunny Icon" class="bunny-img">
-    <h1>Buni - Your Stress Companion</h1>
-    <p class="subtitle">"Hop into wellness! Our bunny will help you discover your best self with a helpful survey!"</p>
-    
-    <div class="description">
-        <ul>
-            <li>Buni will help promote mindfulness, balance, and resilience!</li>
-            <li>A Buni's presence can improve your mood and reduce stress.</li>
-        </ul>
+    <div class="container">
+        <div class="header">
+            <img src="buni.png" alt="Buni Bunny" class="buni-img">
+        </div>
+        <div class="content">
+            <h1>Buni! - Your Stress Companion</h1>
+            <p class="subtitle"><strong>"Hop into wellness! Our bunny will help you discover your best self with a fun quiz!"</strong></p>
+            <ul>
+                <li>Buni will help promote mindfulness, balance, and resilience!</li>
+                <li>A Buni's presence can improve your mood and reduce stress.</li>
+            </ul>
+            <p class="question"><em>Choose what you are feeling today!</em></p>
+            <div class="buttons">
+                <button class="btn" id="unsure">Unsure</button>
+                <button class="btn" id="sad">Sad</button>
+                <button class="btn" id="stressed">Stressed</button>
+            </div>
+        </div>
     </div>
-
-    <p><em>Choose what you are feeling today!</em></p>
-    
-    <div class="button-container">
-        <button class="button" onclick="showSurvey('anxious')">Anxious</button>
-        <button class="button" onclick="showSurvey('stressed')">Stressed</button>
-        <button class="button" onclick="showSurvey('unsure')">Unsure</button>
-    </div>
-
-    <div id="survey-anxious" class="survey">
-        <h3>Anxiety Survey</h3>
-        <label for="anxietyLevel">On a scale of 1 to 10, how anxious are you?</label>
-        <input type="number" id="anxietyLevel" min="1" max="10">
-        <label for="anxietyTriggers">What triggers your anxiety?</label>
-        <textarea id="anxietyTriggers" placeholder="Share your thoughts..."></textarea>
-        <button onclick="submitSurvey('anxious')">Submit</button>
-    </div>
-
-    <div id="survey-stressed" class="survey">
-        <h3>Stress Survey</h3>
-        <label for="stressLevel">On a scale of 1 to 10, how stressed are you?</label>
-        <input type="number" id="stressLevel" min="1" max="10">
-        <label for="stressCauses">What’s currently stressing you out?</label>
-        <textarea id="stressCauses" placeholder="Share your thoughts..."></textarea>
-        <button onclick="submitSurvey('stressed')">Submit</button>
-    </div>
-
-    <div id="survey-unsure" class="survey">
-        <h3>Uncertainty Survey</h3>
-        <label for="uncertaintyLevel">On a scale of 1 to 10, how uncertain are you feeling?</label>
-        <input type="number" id="uncertaintyLevel" min="1" max="10">
-        <label for="uncertaintyReasons">What are you feeling unsure about?</label>
-        <textarea id="uncertaintyReasons" placeholder="Share your thoughts..."></textarea>
-        <button onclick="submitSurvey('unsure')">Submit</button>
-    </div>
-
-    <p id="response"></p>
-</div>
-
-<script>
-    function showSurvey(feeling) {
-        // Hide all surveys
-        var surveys = document.getElementsByClassName('survey');
-        for (var i = 0; i < surveys.length; i++) {
-            surveys[i].style.display = 'none';
-        }
-        // Show the selected survey
-        document.getElementById('survey-' + feeling).style.display = 'block';
-    }
-
-    function submitSurvey(feeling) {
-        var level, details, responseText = '';
-
-        if (feeling === 'anxious') {
-            level = document.getElementById('anxietyLevel').value;
-            details = document.getElementById('anxietyTriggers').value;
-            responseText = 'Thank you for sharing. It\'s important to identify triggers like "' + details + '". Consider practicing mindfulness techniques to manage your anxiety.';
-        } else if (feeling === 'stressed') {
-            level = document.getElementById('stressLevel').value
-::contentReference[oaicite:3]{index=3}
- 
+</body>
+</html>
 
