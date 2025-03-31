@@ -9,13 +9,15 @@ function submitSurvey() {
     document.getElementById("survey-response").innerHTML = "<p><strong>Thank you for your response!</strong></p><p>Buni suggests: Take deep breaths, write down your thoughts, and talk to someone you trust. 🌸</p>";
 }
 
-// Open Chat (Split-Screen)
+// Open Chat (Enables Split-Screen)
 function openChat() {
+    document.body.classList.add("split-screen");
     document.getElementById("chat-container").style.display = "block";
 }
 
-// Close Chat
+// Close Chat (Back to Normal Layout)
 function closeChat() {
+    document.body.classList.remove("split-screen");
     document.getElementById("chat-container").style.display = "none";
 }
 
@@ -41,4 +43,3 @@ function sendMessage() {
 
     document.getElementById("user-input").value = "";
 }
-
