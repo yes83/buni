@@ -9,24 +9,49 @@
 <body>
 
     <div class="container">
-        <!-- Fixed Image -->
-        <img src="buni.png" alt="Buni Bunny" class="buni-image">
+        <!-- Replaced PNG with GIF -->
+        <img src="buni.gif" alt="Buni Bunny" class="buni-image">
 
         <h1>Buni! - Your Stress Companion</h1>
-        <p><strong>Hop into wellness! Our bunny will help you discover your best self with a fun quiz!</strong></p>
+        <p><strong>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</strong></p>
         <ul>
             <li>Buni will help promote mindfulness, balance, and resilience!</li>
             <li>A Buni's presence can improve your mood and reduce stress.</li>
         </ul>
 
         <h3>Choose what you are feeling today!</h3>
-        <button class="emotion-button">Unsure</button>
-        <button class="emotion-button">Sad</button>
-        <button class="emotion-button">Stressed</button>
+        <button class="emotion-button" onclick="showSurvey('unsure')">Unsure</button>
+        <button class="emotion-button" onclick="showSurvey('sad')">Sad</button>
+        <button class="emotion-button" onclick="showSurvey('stressed')">Stressed</button>
+
+        <!-- Survey Sections (Initially Hidden) -->
+        <div id="survey-unsure" class="survey">
+            <h3>Unsure Survey</h3>
+            <label>What are you unsure about?</label>
+            <textarea placeholder="Share your thoughts..."></textarea><br>
+            <button onclick="submitSurvey('unsure')">Submit</button>
+        </div>
+
+        <div id="survey-sad" class="survey">
+            <h3>Sadness Survey</h3>
+            <label>What’s making you feel sad?</label>
+            <textarea placeholder="Share your feelings..."></textarea><br>
+            <button onclick="submitSurvey('sad')">Submit</button>
+        </div>
+
+        <div id="survey-stressed" class="survey">
+            <h3>Stress Survey</h3>
+            <label>What’s stressing you out?</label>
+            <textarea placeholder="Share your worries..."></textarea><br>
+            <button onclick="submitSurvey('stressed')">Submit</button>
+        </div>
+
+        <p id="response"></p>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
