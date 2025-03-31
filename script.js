@@ -1,65 +1,77 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const surveyContainer = document.getElementById("survey-container");
+// Show survey based on emotion selected
+function showSurvey(feeling) {
+    let surveyContainer = document.getElementById("survey-container");
+    let surveyHTML = "";
 
-    function showSurvey(type) {
-        let surveyHTML = `
-            <div class="survey-box">
-                <h2>${type} Survey</h2>
-                <p>${getSurveyQuestion(type, 1)}</p>
-                <input type="number" min="1" max="10" placeholder="Rate from 1-10"><br><br>
-
-                <p>${getSurveyQuestion(type, 2)}</p>
-                <textarea placeholder="Share your feelings..."></textarea><br>
-
-                <button class="submit-button">Submit</button>
+    if (feeling === "sad") {
+        surveyHTML = `
+            <div class="survey">
+                <h3>Sadness Survey</h3>
+                <p>On a scale of 1 to 10, how sad are you?</p>
+                <input type="number" min="1" max="10">
+                <p>What's making you feel sad?</p>
+                <textarea placeholder="Share your feelings..."></textarea>
+                <button onclick="submitSurvey('sad')">Submit</button>
             </div>
         `;
-
-        surveyContainer.innerHTML = surveyHTML;
-
-        document.querySelector(".submit-button").addEventListener("click", () => showResponse(type));
-    }
-
-    function getSurveyQuestion(type, questionNumber) {
-        const questions = {
-            "Unsure": [
-                "On a scale of 1 to 10, how uncertain are you feeling?",
-                "What are you feeling unsure about?"
-            ],
-            "Sad": [
-                "On a scale of 1 to 10, how sad are you feeling?",
-                "What’s making you feel sad?"
-            ],
-            "Stressed": [
-                "On a scale of 1 to 10, how stressed are you?",
-                "What’s causing your stress?"
-            ]
-        };
-        return questions[type][questionNumber - 1];
-    }
-
-    function showResponse(type) {
-        let responseHTML = `
-            <div class="survey-box">
-                <h2>Buni's Advice</h2>
-                <p>${getResponseMessage(type)}</p>
+    } else if (feeling === "stressed") {
+        surveyHTML = `
+            <div class="survey">
+                <h3>Stress Survey</h3>
+                <p>On a scale of 1 to 10, how stressed are you?</p>
+                <input type="number" min="1" max="10">
+                <p>What’s causing you stress?</p>
+                <textarea placeholder="Share your stress..."></textarea>
+                <button onclick="submitSurvey('stressed')">Submit</button>
             </div>
         `;
-        surveyContainer.innerHTML = responseHTML;
+    } else if (feeling === "unsure") {
+        surveyHTML = `
+            <div class="survey">
+                <h3>Unsure Survey</h3>
+                <p>Can you describe what you're feeling?</p>
+                <textarea placeholder="Your thoughts..."></textarea>
+                <button onclick="submitSurvey('unsure')">Submit</button>
+            </div>
+        `;
     }
 
-    function getResponseMessage(type) {
-        const responses = {
-            "Unsure": "Feeling unsure is normal. Try breaking things down into smaller steps and talking to a trusted friend or writing down your thoughts.",
-            "Sad": "Sadness can be tough, but you're not alone. Engaging in activities you enjoy, talking to someone, or practicing mindfulness can help.",
-            "Stressed": "Stress can be overwhelming. Take deep breaths, organize your tasks, and don't hesitate to take breaks. You're doing great!"
-        };
-        return responses[type];
+    surveyContainer.innerHTML = surveyHTML;
+}
+
+// Submit survey and show response
+function submitSurvey(feeling) {
+    let responseMessage = "";
+
+    if (feeling === "sad") {
+        responseMessage = "Buni says: I'm sorry you're feeling this way 💕 Try to talk to someone close to you and do something you enjoy!";
+    } else if (feeling === "stressed") {
+        responseMessage = "Buni says: Stress can be tough! 🧘‍♀️ Try deep breathing, taking a break, or making a small to-do list.";
+    } else if (feeling === "unsure") {
+        responseMessage = "Buni says: It's okay to feel unsure! Reflect on your emotions and take things one step at a time. 💖";
     }
 
-    document.getElementById("unsure").addEventListener("click", () => showSurvey("Unsure"));
-    document.getElementById("sad").addEventListener("click", () => showSurvey("Sad"));
-    document.getElementById("stressed").addEventListener("click", () => showSurvey("Stressed"));
-});
+    document.getElementById("survey-container").innerHTML = `<p>${responseMessage}</p>`;
+}
 
+// Open chat popup
+function openChat() {
+    document.getElementById("chat-popup").style.display = "block";
+}
 
+// Close chat popup
+function closeChat() {
+    document.getElementById("chat-popup").style.display = "none";
+}
+
+// Send message in chat
+function sendMessage() {
+    let chatInput = document.getElementById("chat-input").value;
+    let chatMessages = document.getElementById("chat-messages");
+
+    if (chatInput.trim() !== "") {
+        chatMessages.innerHTML += `<p><strong>You:</strong> ${chatInput}</p>`;
+        chatMessages.innerHTML += `<p><strong>Buni:</strong> I'm here for you! 💖</p>`;
+        document.getElementById("chat-input").value = "";
+    }
+}
