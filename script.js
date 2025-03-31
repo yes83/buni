@@ -9,7 +9,10 @@ function submitSurvey(type) {
 
 // Chat Functionality
 function openChat() {
-    document.getElementById("chat-popup").style.display = "block";
+    let chatPopup = document.getElementById("chat-popup");
+    chatPopup.style.display = "block";
+    chatPopup.style.left = "50%";
+    chatPopup.style.top = "50%";
 }
 
 function closeChat() {
@@ -35,4 +38,30 @@ function sendMessage() {
 
     document.getElementById("user-input").value = "";
 }
+
+// Make Chat Pop-up Draggable
+let chatPopup = document.getElementById("chat-popup");
+let chatHeader = document.querySelector(".chat-header");
+
+let isDragging = false;
+let offsetX, offsetY;
+
+chatHeader.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    offsetX = e.clientX - chatPopup.getBoundingClientRect().left;
+    offsetY = e.clientY - chatPopup.getBoundingClientRect().top;
+    chatPopup.style.cursor = "grabbing";
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (isDragging) {
+        chatPopup.style.left = `${e.clientX - offsetX}px`;
+        chatPopup.style.top = `${e.clientY - offsetY}px`;
+    }
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+    chatPopup.style.cursor = "grab";
+});
 
