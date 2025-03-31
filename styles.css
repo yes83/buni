@@ -7,42 +7,39 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    display: flex;
 }
 
+/* Website Content */
 .container {
+    width: 50%;
     max-width: 800px;
-    margin: 40px auto;
     padding: 20px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    position: relative;
+    margin: 20px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
 .buni-image {
-    width: 120px;
-    margin-top: -30px;
+    width: 100px;
+    height: auto;
 }
 
 h1 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 800;
     color: #ff4d6d;
-    text-shadow: 2px 2px 8px rgba(255, 77, 109, 0.3);
-    margin-bottom: 10px;
 }
 
-p, h3 {
-    font-size: 18px;
-    color: #555;
-}
-
-h3 {
-    font-weight: 600;
-    color: #ff4d6d;
-    margin-top: 20px;
-}
-
+/* Buttons */
 .emotion-button, .chat-button {
     background: #ff85a2;
     border: none;
@@ -62,7 +59,8 @@ h3 {
     transform: scale(1.1);
 }
 
-.survey {
+/* Survey Box */
+.survey-box {
     display: none;
     background: #ffeef2;
     border-radius: 15px;
@@ -71,26 +69,30 @@ h3 {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-input, textarea {
+.survey-box input, .survey-box textarea {
     width: 80%;
     padding: 10px;
     font-size: 16px;
     border: 2px solid #ff85a2;
     border-radius: 10px;
     margin-top: 10px;
+    background: #ffebf0;
 }
 
-.chat-popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
+/* Chat (Half-Screen) */
+#chat-container {
     width: 50%;
+    height: 100vh;
+    display: none;
+    background: #fff;
+    border-left: 3px solid #ff85a2;
+    padding: 20px;
+}
+
+#chat-box {
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    background: white;
-    border-left: 5px solid #ff85a2;
-    padding: 10px;
-    box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .chat-header {
@@ -103,15 +105,30 @@ input, textarea {
 }
 
 .chat-body {
-    height: 80%;
+    flex-grow: 1;
     overflow-y: auto;
     padding: 10px;
 }
 
 #user-input {
-    width: 80%;
+    width: 85%;
     padding: 10px;
-    margin-top: 10px;
+    font-size: 16px;
+    border: 2px solid #ff85a2;
     border-radius: 10px;
+    margin-top: 10px;
+}
+
+.send-button {
+    background: #ff85a2;
+    border: none;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background: #ff4d6d;
 }
 
