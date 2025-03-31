@@ -9,7 +9,7 @@
 <body>
 
     <div class="container">
-        <!-- Fixed Image -->
+        <!-- Replaced PNG with GIF -->
         <img src="buni.gif" alt="Buni Bunny" class="buni-image">
 
         <h1>Buni! - Your Stress Companion</h1>
@@ -24,39 +24,35 @@
         <button class="emotion-button" onclick="showSurvey('sad')">Sad</button>
         <button class="emotion-button" onclick="showSurvey('stressed')">Stressed</button>
 
-        <!-- Surveys -->
+        <!-- Survey Sections (Initially Hidden) -->
         <div id="survey-unsure" class="survey">
             <h3>Unsure Survey</h3>
-            <p>How unsure are you feeling today?</p>
-            <input type="range" min="1" max="10" id="unsure-level">
-            <p>What is making you feel unsure?</p>
-            <textarea id="unsure-reason" placeholder="Describe your feelings..."></textarea>
+            <label>What are you unsure about?</label>
+            <textarea placeholder="Share your thoughts..."></textarea><br>
             <button onclick="submitSurvey('unsure')">Submit</button>
         </div>
 
         <div id="survey-sad" class="survey">
-            <h3>Sad Survey</h3>
-            <p>How sad are you feeling today?</p>
-            <input type="range" min="1" max="10" id="sad-level">
-            <p>What is making you feel sad?</p>
-            <textarea id="sad-reason" placeholder="Describe your feelings..."></textarea>
+            <h3>Sadness Survey</h3>
+            <label>What’s making you feel sad?</label>
+            <textarea placeholder="Share your feelings..."></textarea><br>
             <button onclick="submitSurvey('sad')">Submit</button>
         </div>
 
         <div id="survey-stressed" class="survey">
-            <h3>Stressed Survey</h3>
-            <p>How stressed are you feeling today?</p>
-            <input type="range" min="1" max="10" id="stressed-level">
-            <p>What is making you feel stressed?</p>
-            <textarea id="stressed-reason" placeholder="Describe your feelings..."></textarea>
+            <h3>Stress Survey</h3>
+            <label>What’s stressing you out?</label>
+            <textarea placeholder="Share your worries..."></textarea><br>
             <button onclick="submitSurvey('stressed')">Submit</button>
         </div>
 
+        <p id="response"></p>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
