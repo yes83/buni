@@ -9,23 +9,39 @@
 <body>
 
     <div class="container">
+        <!-- Buni GIF -->
         <img src="buni.gif" alt="Buni Bunny" class="buni-image">
 
-        <h1>Buni! - Your Stress Companion</h1>
-        <p><strong>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</strong></p>
-        <ul>
+        <!-- Header -->
+        <h1 class="main-title">Buni! - Your Stress Companion</h1>
+        <p class="subtitle"><strong>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</strong></p>
+        <ul class="info-list">
             <li>Buni will help promote mindfulness, balance, and resilience!</li>
-            <li>A Buni's presence can improve your mood and reduce stress.</li>
+            <li>Buni's presence can improve your mood and reduce stress.</li>
         </ul>
 
-        <h3>Choose what you are feeling today!</h3>
+        <!-- Emotion Buttons -->
+        <h3 class="choose-text">Choose what you are feeling today!</h3>
         <div class="button-container">
-            <button class="emotion-button" id="unsure">Unsure</button>
-            <button class="emotion-button" id="sad">Sad</button>
-            <button class="emotion-button" id="stressed">Stressed</button>
+            <button class="emotion-button" onclick="showSurvey('unsure')">Unsure</button>
+            <button class="emotion-button" onclick="showSurvey('sad')">Sad</button>
+            <button class="emotion-button" onclick="showSurvey('stressed')">Stressed</button>
+            <button class="chat-button" onclick="openChat()">Chat with Buni</button>
         </div>
 
+        <!-- Surveys -->
         <div id="survey-container"></div>
+    </div>
+
+    <!-- Chat Popup -->
+    <div id="chat-popup" class="chat-popup">
+        <div class="chat-box">
+            <h2>Chat with Buni</h2>
+            <div id="chat-messages"></div>
+            <textarea id="chat-input" placeholder="Type your message..."></textarea>
+            <button onclick="sendMessage()">Send</button>
+            <button class="close-btn" onclick="closeChat()">Close</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
