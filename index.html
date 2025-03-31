@@ -5,50 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Buni - Your Stress Companion</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
 
     <div class="container">
-        <!-- Fixed Image (Buni GIF) -->
         <img src="buni.gif" alt="Buni Bunny" class="buni-image">
 
         <h1>Buni! - Your Stress Companion</h1>
-        <p><strong>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</strong></p>
+        <p><strong>Hop into wellness! Our bunny will help you discover your best self with a fun quiz!</strong></p>
         <ul>
             <li>Buni will help promote mindfulness, balance, and resilience!</li>
             <li>A Buni's presence can improve your mood and reduce stress.</li>
         </ul>
 
         <h3>Choose what you are feeling today!</h3>
-
-        <button class="emotion-button" onclick="showSurvey('unsure')">Unsure</button>
-        <button class="emotion-button" onclick="showSurvey('sad')">Sad</button>
-        <button class="emotion-button" onclick="showSurvey('stressed')">Stressed</button>
-
-        <!-- Surveys (Hidden by Default) -->
-        <div id="survey-unsure" class="survey">
-            <h3>Unsure Survey</h3>
-            <p>What are you feeling unsure about?</p>
-            <textarea placeholder="Write here..."></textarea>
-            <button class="submit-button" onclick="hideSurvey('unsure')">Submit</button>
+        <div class="button-container">
+            <button class="emotion-button" id="unsure">Unsure</button>
+            <button class="emotion-button" id="sad">Sad</button>
+            <button class="emotion-button" id="stressed">Stressed</button>
         </div>
 
-        <div id="survey-sad" class="survey">
-            <h3>Sad Survey</h3>
-            <p>What's making you feel sad?</p>
-            <textarea placeholder="Write here..."></textarea>
-            <button class="submit-button" onclick="hideSurvey('sad')">Submit</button>
-        </div>
-
-        <div id="survey-stressed" class="survey">
-            <h3>Stressed Survey</h3>
-            <p>What is causing your stress?</p>
-            <textarea placeholder="Write here..."></textarea>
-            <button class="submit-button" onclick="hideSurvey('stressed')">Submit</button>
-        </div>
+        <div id="survey-container"></div> <!-- Surveys will appear here -->
     </div>
 
+    <script src="script.js"></script>
 </body>
 </html>
 
