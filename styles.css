@@ -1,32 +1,52 @@
+/* Reset */
 body {
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fef8e6;
     text-align: center;
-    background-color: #f0f8ff;
 }
 
+/* Main Container */
 .container {
-    margin: 50px auto;
-    width: 80%;
-    background: white;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
 }
 
+/* Buni Image */
 .buni-image {
-    width: 150px;
-    animation: bounce 2s infinite;
+    width: 120px;
+    display: block;
+    margin: 20px auto;
 }
 
+/* Headings */
+h1 {
+    color: #ff6f61;
+    font-size: 28px;
+}
+
+h3 {
+    color: #ff8c42;
+}
+
+/* Buttons */
 .emotion-button {
     background-color: #ffab40;
     color: white;
-    padding: 15px 20px;
-    margin: 10px;
-    border-radius: 25px;
     border: none;
+    padding: 15px 25px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
+    margin: 10px;
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
 }
 
 .emotion-button:hover {
@@ -34,16 +54,45 @@ body {
     transform: scale(1.1);
 }
 
+/* Survey */
 .survey {
     display: none;
-    margin-top: 20px;
+    background: #fff3e0;
     padding: 15px;
-    border: 1px solid #ddd;
     border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 80px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.submit-button {
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #ff3d2e;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
