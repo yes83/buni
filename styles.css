@@ -1,98 +1,103 @@
-/* Reset */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fef8e6;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #f7e1ff, #ffffff);
     text-align: center;
-}
-
-/* Main Container */
-.container {
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
     padding: 20px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    animation: fadeIn 1s ease-in-out;
+    transition: background 0.5s;
 }
 
-/* Buni Image */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 60%;
+    margin: auto;
+    border: 2px solid #ff99cc;
+}
+
 .buni-image {
     width: 120px;
-    display: block;
-    margin: 20px auto;
 }
 
-/* Headings */
 h1 {
-    color: #ff6f61;
     font-size: 28px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 16px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li::before {
+    content: "• ";
+    color: #ff66b2;
+    font-size: 20px;
 }
 
 h3 {
-    color: #ff8c42;
+    font-style: italic;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
-/* Buttons */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
 .emotion-button {
-    background-color: #ffab40;
+    background: #ff66b2;
     color: white;
-    border: none;
-    padding: 15px 25px;
-    border-radius: 25px;
-    cursor: pointer;
-    margin: 10px;
     font-size: 18px;
-    transition: all 0.3s ease-in-out;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
 .emotion-button:hover {
-    background-color: #ff9800;
+    background: #ff3385;
     transform: scale(1.1);
 }
 
-/* Survey */
-.survey {
+#survey-container {
     display: none;
-    background: #fff3e0;
-    padding: 15px;
+    background: #fff;
+    border: 2px solid #ff99cc;
+    padding: 20px;
     border-radius: 10px;
     margin-top: 20px;
-    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Textarea */
 textarea {
-    width: 100%;
+    width: 80%;
     height: 80px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ff99cc;
+    border-radius: 5px;
     padding: 10px;
-    font-size: 14px;
 }
 
-/* Submit Button */
-.submit-button {
-    background-color: #ff6f61;
+button.submit {
+    background: #ff66b2;
     color: white;
+    padding: 8px 15px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
 }
 
-.submit-button:hover {
-    background-color: #ff3d2e;
+button.submit:hover {
+    background: #ff3385;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
 
