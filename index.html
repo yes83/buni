@@ -9,15 +9,13 @@
 <body>
 
     <div class="container">
-        <!-- Buni Image Aligned -->
-        <div class="header">
-            <img src="buni.gif" alt="Buni Bunny" class="buni-image">
-            <h1>Buni! - Your Stress Companion</h1>
-        </div>
+        <!-- Fixed Image -->
+        <img src="buni.gif" alt="Buni Bunny" class="buni-image">
 
-        <p><strong>Hop into wellness! Buni will help you discover your best self with a helpful survey!</strong></p>
+        <h1>Buni! - Your Stress Companion</h1>
+        <p><strong>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</strong></p>
         <ul>
-            <li>Buni promotes mindfulness, balance, and resilience!</li>
+            <li>Buni will help promote mindfulness, balance, and resilience!</li>
             <li>A Buni's presence can improve your mood and reduce stress.</li>
         </ul>
 
@@ -28,20 +26,40 @@
         <button class="chat-button" onclick="openChat()">Chat with Buni</button>
 
         <!-- Surveys -->
-        <div id="survey-box" class="survey-box">
-            <h2 id="survey-title"></h2>
-            <p>On a scale of 1-10, how are you feeling?</p>
-            <input type="number" min="1" max="10">
-            <p>What’s on your mind?</p>
-            <textarea placeholder="Describe your feelings..."></textarea>
-            <button class="submit-button" onclick="submitSurvey()">Submit</button>
-            <div id="survey-response" class="response-box"></div>
-        </div>
-    </div>
+        <div id="survey-container">
+            <div id="survey-unsure" class="survey">
+                <h3>Unsure Survey</h3>
+                <p>On a scale of 1-10, how unsure are you feeling?</p>
+                <input type="number" min="1" max="10">
+                <p>What are you feeling unsure about?</p>
+                <textarea placeholder="Describe your feelings..."></textarea>
+                <button onclick="submitSurvey('unsure')">Submit</button>
+                <p class="survey-response" id="response-unsure"></p>
+            </div>
 
-    <!-- Chat Window (Split-Screen) -->
-    <div id="chat-container">
-        <div id="chat-box">
+            <div id="survey-sad" class="survey">
+                <h3>Sadness Survey</h3>
+                <p>On a scale of 1-10, how sad are you?</p>
+                <input type="number" min="1" max="10">
+                <p>What is making you sad?</p>
+                <textarea placeholder="Describe your emotions..."></textarea>
+                <button onclick="submitSurvey('sad')">Submit</button>
+                <p class="survey-response" id="response-sad"></p>
+            </div>
+
+            <div id="survey-stressed" class="survey">
+                <h3>Stress Survey</h3>
+                <p>On a scale of 1-10, how stressed are you?</p>
+                <input type="number" min="1" max="10">
+                <p>What is causing your stress?</p>
+                <textarea placeholder="Describe your situation..."></textarea>
+                <button onclick="submitSurvey('stressed')">Submit</button>
+                <p class="survey-response" id="response-stressed"></p>
+            </div>
+        </div>
+
+        <!-- Chat Pop-up -->
+        <div id="chat-popup" class="chat-popup">
             <div class="chat-header">
                 <h3>Chat with Buni</h3>
                 <button onclick="closeChat()">✖</button>
@@ -50,13 +68,12 @@
                 <p class="buni-text">Hi! I'm Buni. How can I help you today? 😊</p>
             </div>
             <input type="text" id="user-input" placeholder="Type your message...">
-            <button class="send-button" onclick="sendMessage()">Send</button>
+            <button onclick="sendMessage()">Send</button>
         </div>
+
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
 
