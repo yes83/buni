@@ -1,32 +1,38 @@
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #f7e1ff, #ffffff);
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #f8cef7, #d0aaff);
     text-align: center;
-    padding: 20px;
-    transition: background 0.5s;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
+    width: 80%;
+    margin: 50px auto;
     background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 60%;
-    margin: auto;
-    border: 2px solid #ff99cc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .buni-image {
-    width: 120px;
+    width: 150px;
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
 h1 {
     font-size: 28px;
-    font-weight: bold;
+    color: black;
 }
 
 p {
     font-size: 16px;
+    color: black;
 }
 
 ul {
@@ -34,34 +40,25 @@ ul {
     padding: 0;
 }
 
-li::before {
-    content: "• ";
-    color: #ff66b2;
-    font-size: 20px;
-}
-
-h3 {
-    font-style: italic;
-    font-size: 18px;
-    margin-top: 20px;
+li {
+    font-size: 14px;
+    margin-bottom: 5px;
 }
 
 .button-container {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 .emotion-button {
     background: #ff66b2;
     color: white;
-    font-size: 18px;
-    padding: 12px 25px;
     border: none;
-    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 25px;
     cursor: pointer;
-    transition: all 0.3s;
+    margin: 5px;
+    transition: 0.3s;
 }
 
 .emotion-button:hover {
@@ -69,35 +66,39 @@ h3 {
     transform: scale(1.1);
 }
 
-#survey-container {
-    display: none;
-    background: #fff;
-    border: 2px solid #ff99cc;
-    padding: 20px;
-    border-radius: 10px;
+.survey-box {
+    background: #fff0f5;
+    padding: 15px;
     margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 textarea {
     width: 80%;
-    height: 80px;
-    border: 1px solid #ff99cc;
+    height: 100px;
+    border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
+    font-size: 14px;
 }
 
-button.submit {
+.submit-button {
     background: #ff66b2;
     color: white;
-    padding: 8px 15px;
     border: none;
+    padding: 10px 20px;
+    font-size: 16px;
     border-radius: 5px;
-    margin-top: 10px;
     cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
 }
 
-button.submit:hover {
+.submit-button:hover {
     background: #ff3385;
+    transform: scale(1.1);
 }
+
 
 
