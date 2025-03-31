@@ -1,36 +1,43 @@
+// Show Surveys
 function showSurvey(type) {
-    document.querySelectorAll('.survey').forEach(s => s.style.display = 'none');
-    document.getElementById(`survey-${type}`).style.display = 'block';
+    document.getElementById("survey-box").style.display = "block";
+    document.getElementById("survey-title").innerText = type.charAt(0).toUpperCase() + type.slice(1) + " Survey";
 }
 
-function submitSurvey(type) {
-    alert(`Thank you for your response! Buni has some advice for you.`);
-    document.getElementById(`survey-${type}`).style.display = 'none';
+// Submit Survey
+function submitSurvey() {
+    document.getElementById("survey-response").innerHTML = "<p><strong>Thank you for your response!</strong></p><p>Buni suggests: Take deep breaths, write down your thoughts, and talk to someone you trust. 🌸</p>";
 }
 
+// Open Chat (Split-Screen)
 function openChat() {
-    document.getElementById("chat-popup").style.display = "block";
+    document.getElementById("chat-container").style.display = "block";
 }
 
+// Close Chat
 function closeChat() {
-    document.getElementById("chat-popup").style.display = "none";
+    document.getElementById("chat-container").style.display = "none";
 }
 
+// Chat Functionality
 function sendMessage() {
     let userInput = document.getElementById("user-input").value;
     let chatBody = document.getElementById("chat-body");
 
     if (userInput.trim() === "") return;
 
-    let userMessage = document.createElement("p");
-    userMessage.textContent = userInput;
-    chatBody.appendChild(userMessage);
+    chatBody.innerHTML += `<p class="user-message">${userInput}</p>`;
 
-    let responses = ["I'm here for you!", "Take deep breaths!", "You got this!", "Buni believes in you!"];
-    let buniMessage = document.createElement("p");
-    buniMessage.textContent = responses[Math.floor(Math.random() * responses.length)];
-    chatBody.appendChild(buniMessage);
+    let responses = [
+        "I'm here for you! 🌸",
+        "Deep breaths can help. Try it now!",
+        "You are stronger than you think! 💪",
+        "I'm sending virtual bunny hugs! 🐰"
+    ];
+
+    setTimeout(() => {
+        chatBody.innerHTML += `<p class="buni-text">${responses[Math.floor(Math.random() * responses.length)]}</p>`;
+    }, 1000);
 
     document.getElementById("user-input").value = "";
 }
-
