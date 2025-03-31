@@ -75,3 +75,4 @@ function sendMessage() {
         document.getElementById("chat-input").value = "";
     }
 }
+
