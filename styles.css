@@ -8,85 +8,41 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
+    transition: all 0.5s ease;
 }
 
-/* Website Content */
+/* Default: Full Screen Content */
 .container {
-    width: 50%;
+    width: 80%;
     max-width: 800px;
+    margin: auto;
     padding: 20px;
     background: #fff;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    transition: width 0.5s ease;
 }
 
-.header {
+/* Split-Screen Layout when Chat is Open */
+.split-screen {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: row;
 }
 
-.buni-image {
-    width: 100px;
-    height: auto;
+.split-screen .container {
+    width: 50%;
 }
 
-h1 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #ff4d6d;
-}
-
-/* Buttons */
-.emotion-button, .chat-button {
-    background: #ff85a2;
-    border: none;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 10px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.emotion-button:hover, .chat-button:hover {
-    background: #ff4d6d;
-    transform: scale(1.1);
-}
-
-/* Survey Box */
-.survey-box {
-    display: none;
-    background: #ffeef2;
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.survey-box input, .survey-box textarea {
-    width: 80%;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ff85a2;
-    border-radius: 10px;
-    margin-top: 10px;
-    background: #ffebf0;
-}
-
-/* Chat (Half-Screen) */
+/* Chat Container (Hidden by Default) */
 #chat-container {
+    display: none;
     width: 50%;
     height: 100vh;
-    display: none;
     background: #fff;
     border-left: 3px solid #ff85a2;
     padding: 20px;
+    transition: width 0.5s ease;
 }
 
 #chat-box {
