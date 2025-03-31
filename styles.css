@@ -21,7 +21,8 @@ body {
 
 .buni-image {
     width: 150px;
-    margin-top: -30px;
+    display: block;
+    margin: 0 auto 20px auto; /* Centers the image */
 }
 
 h1 {
@@ -69,12 +70,13 @@ h1 {
     display: none;
     position: fixed;
     bottom: 20px;
-    right: 0;
+    right: 20px;
     width: 50%;
     height: 60%;
     background: white;
-    border-radius: 10px 0 0 10px;
+    border-radius: 10px;
     box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: grab;
 }
 
 .chat-header {
@@ -84,6 +86,7 @@ h1 {
     font-weight: bold;
     display: flex;
     justify-content: space-between;
+    cursor: grab;
 }
 
 .chat-body {
