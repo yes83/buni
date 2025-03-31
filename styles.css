@@ -10,10 +10,13 @@ body {
     padding: 20px;
 }
 
+.buni-container {
+    display: flex;
+    justify-content: center;
+}
+
 .buni-image {
-    width: 120px;
-    display: block;
-    margin: 0 auto;
+    width: 140px;
 }
 
 .main-title {
@@ -100,4 +103,3 @@ button.close-btn {
     background: #ccc;
     margin-top: 5px;
 }
-
