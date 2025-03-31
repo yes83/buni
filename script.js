@@ -1,5 +1,5 @@
 function showSurvey(type) {
-    document.querySelectorAll('.survey').forEach(s => s.style.display = 'none');
+    document.querySelectorAll('.survey-box').forEach(s => s.style.display = 'none');
     document.getElementById(`survey-${type}`).style.display = 'block';
 }
 
@@ -22,28 +22,16 @@ function sendMessage() {
 
     if (userInput.trim() === "") return;
 
-    // Display user message
-    let userMessage = document.createElement("p");
-    userMessage.textContent = userInput;
-    userMessage.style.background = "#c1e1c1";
-    userMessage.style.padding = "8px";
-    userMessage.style.borderRadius = "5px";
-    userMessage.style.textAlign = "right";
-    userMessage.style.margin = "5px 0";
-    chatBody.appendChild(userMessage);
+    let userMessage = `<p style="text-align:right;">${userInput}</p>`;
+    chatBody.innerHTML += userMessage;
 
-    // Buni's response
     let responses = [
         "I'm here for you! 🌸",
         "Deep breaths can help. Try it now!",
         "You are stronger than you think! 💪",
-        "I'm sending virtual bunny hugs! 🐰"
+        "Sending virtual bunny hugs! 🐰"
     ];
-    let buniMessage = document.createElement("p");
-    buniMessage.textContent = responses[Math.floor(Math.random() * responses.length)];
-    buniMessage.classList.add("buni-text");
-    chatBody.appendChild(buniMessage);
+    chatBody.innerHTML += `<p class="buni-text">${responses[Math.floor(Math.random() * responses.length)]}</p>`;
 
     document.getElementById("user-input").value = "";
 }
-
