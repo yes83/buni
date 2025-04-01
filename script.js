@@ -1,22 +1,48 @@
 function openSurvey(type) {
-    document.getElementById("survey-container").style.display = "block";
+    let title = document.getElementById("survey-title");
+    let question = document.getElementById("survey-question");
+    
+    if (type === "unsure") {
+        title.innerText = "Unsure Survey";
+        question.innerText = "What is making you feel unsure?";
+    } else if (type === "sad") {
+        title.innerText = "Sad Survey";
+        question.innerText = "On a scale of 1 to 10, how sad are you feeling?";
+    } else if (type === "stressed") {
+        title.innerText = "Stressed Survey";
+        question.innerText = "What is causing your stress?";
+    }
+
+    document.getElementById("survey-container").classList.remove("hidden");
 }
 
 function submitSurvey() {
-    let response = document.getElementById("survey-input").value;
-    document.getElementById("survey-response").innerText = "Thank you for your response: " + response;
+    let input = document.getElementById("survey-input").value;
+    let details = document.getElementById("survey-details").value;
+    let response = document.getElementById("survey-response");
+
+    response.innerText = "Thank you for sharing! We appreciate your response.";
 }
 
 function toggleChat() {
     let chatBox = document.getElementById("chat-container");
-    chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
+    chatBox.style.visibility = chatBox.style.visibility === "visible" ? "hidden" : "visible";
 }
 
-function sendMessage() {
-    let input = document.getElementById("chat-input").value;
-    let chatBox = document.getElementById("chat-box");
-    let newMessage = document.createElement("p");
-    newMessage.textContent = "You: " + input;
-    chatBox.appendChild(newMessage);
-    document.getElementById("chat-input").value = "";
+function closeChat() {
+    document.getElementById("chat-container").style.visibility = "hidden";
+}
+
+function sendMessage(event) {
+    if (event.key === "Enter") {
+        let input = document.getElementById("chat-input");
+        let chatBox = document.getElementById("chat-box");
+
+        if (input.value.trim() !== "") {
+            let message = document.createElement("p");
+            message.innerText = "You: " + input.value;
+            chatBox.appendChild(message);
+            input.value = "";
+        }
+    }
 }
