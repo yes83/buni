@@ -1,18 +1,29 @@
 function showSurvey(type) {
-    document.querySelectorAll('.survey-box').forEach(s => s.style.display = 'none');
+    document.querySelectorAll('.survey').forEach(s => s.style.display = 'none');
     document.getElementById(`survey-${type}`).style.display = 'block';
 }
 
 function submitSurvey(type) {
-    alert("Thank you for your response! Buni is here to help. 💖");
+    let responseText = {
+        unsure: "Uncertainty is okay! Take a deep breath and focus on one step at a time.",
+        sad: "It's okay to feel sad sometimes. Try doing something you love to lift your mood!",
+        stressed: "You're strong! Try deep breathing exercises to calm yourself."
+    };
+    
+    let survey = document.getElementById(`survey-${type}`);
+    let responseElement = survey.querySelector(".survey-response");
+    responseElement.textContent = responseText[type];
 }
 
 function openChat() {
     document.getElementById("chat-popup").style.display = "block";
+    document.body.style.display = "grid";
+    document.body.style.gridTemplateColumns = "50% 50%";
 }
 
 function closeChat() {
     document.getElementById("chat-popup").style.display = "none";
+    document.body.style.display = "block";
 }
 
 function sendMessage() {
@@ -23,17 +34,19 @@ function sendMessage() {
 
     let userMessage = document.createElement("p");
     userMessage.textContent = userInput;
-    userMessage.style.background = "#c1e1c1";
-    userMessage.style.padding = "8px";
-    userMessage.style.borderRadius = "5px";
     userMessage.style.textAlign = "right";
     chatBody.appendChild(userMessage);
 
-    let responses = ["I'm here for you! 🌸", "Take a deep breath!", "You're doing great!", "Sending virtual hugs! 🐰"];
+    let responses = [
+        "I'm here for you! 🌸",
+        "Take deep breaths. You're doing great!",
+        "You are stronger than you think! 💪",
+        "Virtual bunny hugs! 🐰"
+    ];
     let buniMessage = document.createElement("p");
     buniMessage.textContent = responses[Math.floor(Math.random() * responses.length)];
-    buniMessage.classList.add("buni-text");
     chatBody.appendChild(buniMessage);
 
     document.getElementById("user-input").value = "";
 }
+
