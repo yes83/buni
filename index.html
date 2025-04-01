@@ -8,14 +8,12 @@
 </head>
 <body>
 
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>Buni! - Your Stress Companion</h1>
-            <img src="buni.gif" alt="Buni Bunny" class="buni-image">
-        </div>
-        
-        <p><strong>Hop into wellness! Buni will help you discover your best self with a helpful survey!</strong></p>
+    <div class="container" id="main-content">
+        <!-- Buni GIF -->
+        <img src="buni.gif" alt="Buni Bunny" class="buni-image">
+
+        <h1>Buni - Your Stress Companion</h1>
+        <p><strong>Hop into wellness! Buni will help you discover your best self through a helpful survey!</strong></p>
 
         <h3>Choose what you are feeling today!</h3>
         <div class="button-container">
@@ -28,7 +26,7 @@
         <!-- Surveys -->
         <div id="survey-container">
             <div id="survey-unsure" class="survey-box">
-                <h2>Helpful Survey</h2>
+                <h2>Unsure Survey</h2>
                 <p>On a scale of 1-10, how unsure are you feeling?</p>
                 <input type="number" min="1" max="10">
                 <p>What are you feeling unsure about?</p>
@@ -37,7 +35,7 @@
             </div>
 
             <div id="survey-sad" class="survey-box">
-                <h2>Helpful Survey</h2>
+                <h2>Sadness Survey</h2>
                 <p>On a scale of 1-10, how sad are you?</p>
                 <input type="number" min="1" max="10">
                 <p>What is making you sad?</p>
@@ -46,7 +44,7 @@
             </div>
 
             <div id="survey-stressed" class="survey-box">
-                <h2>Helpful Survey</h2>
+                <h2>Stress Survey</h2>
                 <p>On a scale of 1-10, how stressed are you?</p>
                 <input type="number" min="1" max="10">
                 <p>What is causing your stress?</p>
@@ -54,24 +52,24 @@
                 <button class="submit-button" onclick="submitSurvey('stressed')">Submit</button>
             </div>
         </div>
+    </div>
 
-        <!-- Chat Pop-up -->
-        <div id="chat-container">
-            <div id="chat-popup" class="chat-popup">
-                <div class="chat-header">
-                    <h3>Chat with Buni</h3>
-                    <button class="close-chat" onclick="closeChat()">✖</button>
-                </div>
-                <div class="chat-body" id="chat-body">
-                    <p class="buni-text">Hi! I'm Buni. How can I help you today? 😊</p>
-                </div>
-                <input type="text" id="user-input" placeholder="Type your message...">
-                <button class="send-button" onclick="sendMessage()">Send</button>
+    <!-- Chat Pop-up -->
+    <div id="chat-container">
+        <div id="chat-popup" class="chat-popup">
+            <div class="chat-header">
+                <h3>Chat with Buni</h3>
+                <button onclick="closeChat()">✖</button>
             </div>
+            <div class="chat-body" id="chat-body">
+                <p class="buni-text">Hi! I'm Buni. How can I help you today? 😊</p>
+            </div>
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
         </div>
-
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
