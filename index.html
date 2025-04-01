@@ -7,16 +7,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <div id="main-container">
         <header>
             <img src="buni.gif" alt="Buni" class="buni-gif">
             <h1>Buni! – Your Stress Companion</h1>
         </header>
         <p>Hop into wellness! Buni will help you discover your best self with a helpful survey!</p>
-        <ul>
-            <li>Buni promotes mindfulness, balance, and resilience!</li>
-            <li>A Buni's presence can improve your mood and reduce stress.</li>
-        </ul>
         <h2>Choose what you are feeling today!</h2>
         <div class="buttons">
             <button class="feel-btn" onclick="openSurvey('unsure')">Unsure</button>
@@ -33,12 +29,12 @@
             <button onclick="submitSurvey()">Submit</button>
             <p id="survey-response"></p>
         </div>
+    </div>
 
-        <div id="chat-container" class="hidden">
-            <div id="chat-header">Chat with Buni <span onclick="closeChat()">✖</span></div>
-            <div id="chat-box"></div>
-            <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="sendMessage(event)">
-        </div>
+    <div id="chat-container" class="hidden">
+        <div id="chat-header">Chat with Buni <span onclick="closeChat()">✖</span></div>
+        <div id="chat-box"></div>
+        <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="sendMessage(event)">
     </div>
 
     <script src="script.js"></script>
