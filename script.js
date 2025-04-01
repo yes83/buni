@@ -1,11 +1,11 @@
 document.getElementById("chat").addEventListener("click", function() {
     document.getElementById("chat-container").style.right = "0";
-    document.querySelector(".container").style.width = "50%";
+    document.querySelector(".main-container").style.width = "50%";
 });
 
 document.getElementById("close-chat").addEventListener("click", function() {
     document.getElementById("chat-container").style.right = "-50%";
-    document.querySelector(".container").style.width = "90%";
+    document.querySelector(".main-container").style.width = "100%";
 });
 
 const surveys = {
@@ -31,4 +31,3 @@ document.querySelectorAll(".survey-btn").forEach(button => {
         document.getElementById("survey-box").style.display = "block";
     });
 });
-
