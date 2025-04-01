@@ -1,28 +1,22 @@
 function openSurvey(type) {
-    document.getElementById("surveyBox").style.display = "block";
+    document.getElementById("survey-container").style.display = "block";
 }
 
 function submitSurvey() {
-    let responseText = document.getElementById("surveyInput").value;
-    let responseArea = document.getElementById("surveyTextarea").value;
-    if (responseText.trim() || responseArea.trim()) {
-        document.getElementById("surveyResponse").innerHTML = 
-            `<p>Thank you for your response: <strong>${responseText}</strong></p>`;
-    }
+    let response = document.getElementById("survey-input").value;
+    document.getElementById("survey-response").innerText = "Thank you for your response: " + response;
 }
 
-function openChat() {
-    document.getElementById("chatContainer").style.display = "flex";
-    document.body.style.gridTemplateColumns = "50% 50%";
+function toggleChat() {
+    let chatBox = document.getElementById("chat-container");
+    chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
 }
 
-function handleChat(event) {
-    if (event.key === "Enter") {
-        let input = document.getElementById("chatInput").value;
-        if (input.trim()) {
-            let chatBox = document.getElementById("chatMessages");
-            chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
-            document.getElementById("chatInput").value = "";
-        }
-    }
+function sendMessage() {
+    let input = document.getElementById("chat-input").value;
+    let chatBox = document.getElementById("chat-box");
+    let newMessage = document.createElement("p");
+    newMessage.textContent = "You: " + input;
+    chatBox.appendChild(newMessage);
+    document.getElementById("chat-input").value = "";
 }
