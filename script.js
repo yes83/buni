@@ -17,20 +17,16 @@ function openSurvey(type) {
 }
 
 function submitSurvey() {
-    let input = document.getElementById("survey-input").value;
-    let details = document.getElementById("survey-details").value;
     let response = document.getElementById("survey-response");
-
     response.innerText = "Thank you for sharing! We appreciate your response.";
 }
 
 function toggleChat() {
-    let chatBox = document.getElementById("chat-container");
-    chatBox.style.visibility = chatBox.style.visibility === "visible" ? "hidden" : "visible";
+    document.body.classList.add("split-screen");
 }
 
 function closeChat() {
-    document.getElementById("chat-container").style.visibility = "hidden";
+    document.body.classList.remove("split-screen");
 }
 
 function sendMessage(event) {
