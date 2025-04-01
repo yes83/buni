@@ -1,33 +1,39 @@
-document.getElementById("chat").addEventListener("click", function() {
-    document.getElementById("chat-container").style.right = "0";
-    document.querySelector(".main-container").style.width = "50%";
-});
+function showSurvey(type) {
+    document.querySelectorAll('.survey-box').forEach(s => s.style.display = 'none');
+    document.getElementById(`survey-${type}`).style.display = 'block';
+}
 
-document.getElementById("close-chat").addEventListener("click", function() {
-    document.getElementById("chat-container").style.right = "-50%";
-    document.querySelector(".main-container").style.width = "100%";
-});
+function submitSurvey(type) {
+    alert("Thank you for your response! Buni is here to help. 💖");
+}
 
-const surveys = {
-    unsure: {
-        title: "Unsure Survey",
-        question: "What is making you unsure?"
-    },
-    sad: {
-        title: "Sad Survey",
-        question: "What is making you sad?"
-    },
-    stressed: {
-        title: "Stressed Survey",
-        question: "What is causing your stress?"
-    }
-};
+function openChat() {
+    document.getElementById("chat-popup").style.display = "block";
+}
 
-document.querySelectorAll(".survey-btn").forEach(button => {
-    button.addEventListener("click", function() {
-        const type = this.id;
-        document.getElementById("survey-title").innerText = surveys[type].title;
-        document.getElementById("survey-question").innerText = surveys[type].question;
-        document.getElementById("survey-box").style.display = "block";
-    });
-});
+function closeChat() {
+    document.getElementById("chat-popup").style.display = "none";
+}
+
+function sendMessage() {
+    let userInput = document.getElementById("user-input").value;
+    let chatBody = document.getElementById("chat-body");
+
+    if (userInput.trim() === "") return;
+
+    let userMessage = document.createElement("p");
+    userMessage.textContent = userInput;
+    userMessage.style.background = "#c1e1c1";
+    userMessage.style.padding = "8px";
+    userMessage.style.borderRadius = "5px";
+    userMessage.style.textAlign = "right";
+    chatBody.appendChild(userMessage);
+
+    let responses = ["I'm here for you! 🌸", "Take a deep breath!", "You're doing great!", "Sending virtual hugs! 🐰"];
+    let buniMessage = document.createElement("p");
+    buniMessage.textContent = responses[Math.floor(Math.random() * responses.length)];
+    buniMessage.classList.add("buni-text");
+    chatBody.appendChild(buniMessage);
+
+    document.getElementById("user-input").value = "";
+}
