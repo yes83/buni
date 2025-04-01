@@ -16,13 +16,13 @@ body {
     background: #fff;
     border-radius: 15px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.buni-image {
+    width: 120px;
+    display: block;
+    margin: 10px auto;
 }
 
 h1 {
@@ -31,67 +31,31 @@ h1 {
     color: #ff4d6d;
 }
 
-.buni-image {
-    width: 100px;
-}
-
-.button-container {
-    margin-top: 15px;
-}
-
-.emotion-button, .chat-button {
-    background: #ff85a2;
-    border: none;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: 600;
-    color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 10px;
-    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
-}
-
-.emotion-button:hover, .chat-button:hover {
-    background: #ff4d6d;
-    transform: scale(1.1);
-}
-
-.survey-box {
+.survey {
     background: #ffeef2;
-    border-radius: 15px;
     padding: 20px;
-    margin-top: 20px;
+    border-radius: 15px;
     display: none;
 }
 
-.submit-button {
-    background: #ff85a2;
-    border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    color: white;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.submit-button:hover {
-    background: #ff4d6d;
-    transform: scale(1.1);
+input, textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff85a2;
+    border-radius: 10px;
+    margin-top: 10px;
 }
 
 .chat-popup {
     display: none;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: white;
+    top: 0;
+    right: 0;
     width: 50%;
     height: 100%;
-    border-radius: 10px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    background: white;
+    box-shadow: -3px 0px 10px rgba(0, 0, 0, 0.2);
     padding: 10px;
 }
 
@@ -99,23 +63,14 @@ h1 {
     background: #ffab40;
     color: white;
     padding: 10px;
-    font-weight: bold;
     display: flex;
     justify-content: space-between;
 }
 
 .chat-body {
-    height: 70%;
+    height: 80%;
     overflow-y: auto;
     padding: 10px;
 }
 
-.buni-text {
-    background: #fff3e0;
-    padding: 8px;
-    border-radius: 5px;
-    text-align: left;
-    display: inline-block;
-    max-width: 80%;
-}
 
