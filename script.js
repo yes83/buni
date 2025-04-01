@@ -31,3 +31,4 @@ document.querySelectorAll(".survey-btn").forEach(button => {
         document.getElementById("survey-box").style.display = "block";
     });
 });
+
