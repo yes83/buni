@@ -1,44 +1,33 @@
-function openSurvey(type) {
-    let title = document.getElementById("survey-title");
-    let question = document.getElementById("survey-question");
-    
-    if (type === "unsure") {
-        title.innerText = "Unsure Survey";
-        question.innerText = "What is making you feel unsure?";
-    } else if (type === "sad") {
-        title.innerText = "Sad Survey";
-        question.innerText = "On a scale of 1 to 10, how sad are you feeling?";
-    } else if (type === "stressed") {
-        title.innerText = "Stressed Survey";
-        question.innerText = "What is causing your stress?";
+document.getElementById("chat").addEventListener("click", function() {
+    document.getElementById("chat-container").style.right = "0";
+    document.querySelector(".container").style.width = "50%";
+});
+
+document.getElementById("close-chat").addEventListener("click", function() {
+    document.getElementById("chat-container").style.right = "-50%";
+    document.querySelector(".container").style.width = "90%";
+});
+
+const surveys = {
+    unsure: {
+        title: "Unsure Survey",
+        question: "What is making you unsure?"
+    },
+    sad: {
+        title: "Sad Survey",
+        question: "What is making you sad?"
+    },
+    stressed: {
+        title: "Stressed Survey",
+        question: "What is causing your stress?"
     }
+};
 
-    document.getElementById("survey-container").classList.remove("hidden");
-}
-
-function submitSurvey() {
-    let response = document.getElementById("survey-response");
-    response.innerText = "Thank you for sharing! We appreciate your response.";
-}
-
-function toggleChat() {
-    document.body.classList.add("split-screen");
-}
-
-function closeChat() {
-    document.body.classList.remove("split-screen");
-}
-
-function sendMessage(event) {
-    if (event.key === "Enter") {
-        let input = document.getElementById("chat-input");
-        let chatBox = document.getElementById("chat-box");
-
-        if (input.value.trim() !== "") {
-            let message = document.createElement("p");
-            message.innerText = "You: " + input.value;
-            chatBox.appendChild(message);
-            input.value = "";
-        }
-    }
-}
+document.querySelectorAll(".survey-btn").forEach(button => {
+    button.addEventListener("click", function() {
+        const type = this.id;
+        document.getElementById("survey-title").innerText = surveys[type].title;
+        document.getElementById("survey-question").innerText = surveys[type].question;
+        document.getElementById("survey-box").style.display = "block";
+    });
+});
