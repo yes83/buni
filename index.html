@@ -8,40 +8,36 @@
 </head>
 <body>
     <div class="container">
-        <img src="buni.gif" alt="Buni" class="buni-image">
-        <h1>Buni! - Your Stress Companion</h1>
-        <p><strong>Hop into wellness! Buni will help you discover your best self with a helpful survey!</strong></p>
-        <ul>
-            <li>Buni promotes mindfulness, balance, and resilience!</li>
-            <li>A Buni's presence can improve your mood and reduce stress.</li>
-        </ul>
-        <h3>Choose what you are feeling today!</h3>
-        <div class="button-container">
-            <button class="emotion-button" onclick="openSurvey('unsure')">Unsure</button>
-            <button class="emotion-button" onclick="openSurvey('sad')">Sad</button>
-            <button class="emotion-button" onclick="openSurvey('stressed')">Stressed</button>
-            <button class="emotion-button" onclick="openChat()">Chat with Buni</button>
+        <div class="header">
+            <img src="buni.gif" class="buni-gif" alt="Buni">
+            <h1>Buni! - Your Stress Companion</h1>
+            <p>Hop into wellness! Buni will help you discover your best self with a helpful survey!</p>
         </div>
 
-        <div id="surveyBox" class="survey-box" style="display: none;">
-            <h2>Survey</h2>
-            <input type="text" id="surveyInput" placeholder="How do you feel?">
-            <textarea id="surveyTextarea" placeholder="Tell us more..."></textarea>
-            <button class="submit-button" onclick="submitSurvey()">Submit</button>
-            <div id="surveyResponse" class="survey-response"></div>
+        <div class="buttons">
+            <button class="feeling-btn" onclick="openSurvey('unsure')">Unsure</button>
+            <button class="feeling-btn" onclick="openSurvey('sad')">Sad</button>
+            <button class="feeling-btn" onclick="openSurvey('stressed')">Stressed</button>
+            <button class="chat-btn" onclick="toggleChat()">Chat with Buni</button>
         </div>
-    </div>
 
-    <div id="chatContainer" class="chat-container" style="display: none;">
-        <div class="chat-box">
+        <div id="survey-container" class="survey-container">
+            <h2 class="survey-title">Survey</h2>
+            <input type="text" placeholder="How do you feel?" id="survey-input">
+            <textarea placeholder="Tell us more..." id="survey-details"></textarea>
+            <button onclick="submitSurvey()">Submit</button>
+            <p id="survey-response"></p>
+        </div>
+
+        <div id="chat-container" class="chat-container">
             <h2>Chat with Buni</h2>
-            <div id="chatMessages"></div>
-            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleChat(event)">
+            <div id="chat-box"></div>
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
-
 
