@@ -1,28 +1,28 @@
-function showSurvey(type) {
-    document.querySelectorAll('.survey').forEach(s => s.style.display = 'none');
-    document.getElementById(`survey-${type}`).style.display = 'block';
+function openSurvey(type) {
+    document.getElementById("surveyBox").style.display = "block";
 }
 
-function submitSurvey(type) {
-    let response = document.getElementById(`response-${type}`);
-    response.textContent = "Thank you for your response! Buni suggests taking deep breaths and writing down your thoughts.";
+function submitSurvey() {
+    let responseText = document.getElementById("surveyInput").value;
+    let responseArea = document.getElementById("surveyTextarea").value;
+    if (responseText.trim() || responseArea.trim()) {
+        document.getElementById("surveyResponse").innerHTML = 
+            `<p>Thank you for your response: <strong>${responseText}</strong></p>`;
+    }
 }
 
-// Chat
 function openChat() {
-    document.getElementById("chat-popup").style.display = "block";
+    document.getElementById("chatContainer").style.display = "flex";
+    document.body.style.gridTemplateColumns = "50% 50%";
 }
 
-function closeChat() {
-    document.getElementById("chat-popup").style.display = "none";
-}
-
-function sendMessage() {
-    let userInput = document.getElementById("user-input").value;
-    let chatBody = document.getElementById("chat-body");
-
-    if (userInput.trim() === "") return;
-
-    chatBody.innerHTML += `<p class="buni-text">Buni: I hear you. You're doing great! 💖</p>`;
-    document.getElementById("user-input").value = "";
+function handleChat(event) {
+    if (event.key === "Enter") {
+        let input = document.getElementById("chatInput").value;
+        if (input.trim()) {
+            let chatBox = document.getElementById("chatMessages");
+            chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+            document.getElementById("chatInput").value = "";
+        }
+    }
 }
