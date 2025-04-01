@@ -1,77 +1,88 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #f8c6d0, #c6b5f8);
+    background: linear-gradient(to right, #fbd3e9, #bbdff5);
     text-align: center;
+    padding: 20px;
 }
 
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
     background: white;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
 }
 
 .buni-gif {
     width: 80px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.feeling-btn, .chat-btn {
-    background: #ff7ea5;
+.feel-btn, .chat-btn {
+    background: #ff7eb9;
     color: white;
     border: none;
     padding: 10px 20px;
+    margin: 5px;
     border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.feel-btn:hover, .chat-btn:hover {
+    background: #ff5a97;
+}
+
+#survey-container {
+    background: #ffe3ed;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ff7eb9;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+#chat-container {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: 50vh;
+    background: white;
+    border: 2px solid #ff7eb9;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+}
+
+#chat-header {
+    background: #ff7eb9;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-.survey-container {
-    display: none;
-    background: #ffe6eb;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 10px;
-}
-
-.survey-title {
-    color: #ff4d79;
-}
-
-#survey-input, #survey-details {
-    width: 80%;
+#chat-box {
+    flex: 1;
+    overflow-y: auto;
     padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ff4d79;
-    border-radius: 5px;
-}
-
-.chat-container {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    width: 90%;
-    max-width: 500px;
-    padding: 15px;
-    border-radius: 10px 10px 0 0;
-    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
 }
 
 #chat-input {
-    width: 70%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: none;
+    width: 100%;
 }
-
