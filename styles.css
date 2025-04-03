@@ -1,88 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to right, #e9a8fc, #b3c6ff);
     text-align: center;
+    background: linear-gradient(120deg, #fddde6, #c1c8ff);
+    color: #333;
     margin: 0;
     padding: 0;
 }
 
 .container {
-    background: white;
+    max-width: 800px;
+    margin: 40px auto;
     padding: 20px;
-    border-radius: 10px;
-    width: 60%;
-    margin: auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.buni-image {
+    width: 100px;
+    margin-top: -30px;
 }
 
 h1 {
-    color: #ff5e9c;
-}
-
-h2 {
-    color: #ff5e9c;
-    font-size: 1.2em;
-}
-
-.subtitle {
-    font-weight: bold;
-}
-
-.btn {
-    background-color: #ff5e9c;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 20px;
-    color: white;
-    font-size: 1em;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background-color: #ff80b5;
-}
-
-.survey {
-    display: none;
-    background: #ffe0eb;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.response {
-    display: none;
-    background: #ffe0eb;
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-}
-
-.chat {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: white;
-    padding: 15px;
-    border-radius: 10px;
-    width: 300px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-#chat-log {
-    height: 150px;
-    overflow-y: auto;
-    border-bottom: 1px solid #ccc;
+    font-size: 32px;
+    font-weight: 800;
+    color: #ff4d6d;
+    text-shadow: 2px 2px 8px rgba(255, 77, 109, 0.3);
     margin-bottom: 10px;
 }
 
-#chat-input {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.button-container {
+    margin-top: 15px;
 }
+
+.emotion-button {
+    background: #ff85a2;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.emotion-button:hover {
+    background: #ff4d6d;
+    transform: scale(1.1);
+}
+
+.survey-box {
+    background: #ffeef2;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.survey-box h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ff4d6d;
+}
+
+.survey-box input,
+.survey-box textarea {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #ff85a2;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.submit-button {
+    background: #ff85a2;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.3s;
+}
+
+.submit-button:hover {
+    background: #ff4d6d;
+    transform: scale(1.1);
+}
+
+.chat-box {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    border-left: 3px solid #ff4d6d;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+    display: none;
+}
+
+.chat-header {
+    background: #ff4d6d;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+}
+
+.close-chat {
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.chat-messages {
+    flex-grow: 1;
+    padding: 10px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ddd;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 85%;
+    border: 2px solid #ff85a2;
+    border-radius: 10px;
+    font-size: 16px;
+    margin: 10px;
+}
+
 
