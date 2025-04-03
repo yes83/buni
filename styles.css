@@ -1,77 +1,88 @@
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8e8ff, #d5b3ff);
+    background: linear-gradient(to right, #e9a8fc, #b3c6ff);
     text-align: center;
-    padding: 20px;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
     background: white;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    border-radius: 10px;
+    width: 60%;
     margin: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 50px;
 }
 
 h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff5a8a;
-}
-
-.subtitle {
-    font-size: 16px;
-    font-weight: bold;
+    color: #ff5e9c;
 }
 
 h2 {
-    font-size: 18px;
-    color: #ff5a8a;
+    color: #ff5e9c;
+    font-size: 1.2em;
+}
+
+.subtitle {
     font-weight: bold;
-    margin-top: 20px;
 }
 
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.feeling-btn {
-    background: #ff5a8a;
-    color: white;
+.btn {
+    background-color: #ff5e9c;
     border: none;
     padding: 10px 20px;
+    margin: 10px;
     border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
+    color: white;
+    font-size: 1em;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: 0.3s;
 }
 
-.feeling-btn:hover {
-    background: #ff3f72;
+.btn:hover {
+    background-color: #ff80b5;
 }
 
-#advice-box {
-    background: #ffe6ec;
+.survey {
+    display: none;
+    background: #ffe0eb;
     padding: 15px;
-    margin-top: 20px;
     border-radius: 10px;
+    margin-top: 20px;
+}
+
+.response {
     display: none;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    background: #ffe0eb;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-#advice-box h3 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #ff5a8a;
+.chat {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.hidden {
-    display: none;
+#chat-log {
+    height: 150px;
+    overflow-y: auto;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
+#chat-input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
