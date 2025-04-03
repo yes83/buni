@@ -1,35 +1,48 @@
-function showSurvey(feeling) {
-    let surveyContainer = document.getElementById("survey-container");
-    let message = "";
+document.addEventListener("DOMContentLoaded", function() {
+    const surveyContainer = document.getElementById("survey-container");
+    const surveyTitle = document.getElementById("survey-title");
+    const surveyQuestions = document.getElementById("survey-questions");
+    const surveyResponse = document.getElementById("survey-response");
+    const responseMessage = document.getElementById("response-message");
 
-    if (feeling === "stressed") {
-        message = "<strong>Thank you for sharing.</strong><br>It sounds like you're dealing with a lot. Try taking deep breaths and taking breaks.";
-    } else if (feeling === "sad") {
-        message = "<strong>Thank you for sharing.</strong><br>Remember, it's okay to feel sad. Talk to someone you trust.";
-    } else if (feeling === "unsure") {
-        message = "<strong>Thank you for sharing.</strong><br>It's okay not to have all the answers. Take things one step at a time.";
-    }
+    document.querySelectorAll(".emotion-btn").forEach(button => {
+        button.addEventListener("click", function() {
+            const emotion = this.getAttribute("data-emotion");
+            surveyContainer.style.display = "block";
+            surveyResponse.style.display = "none";
 
-    surveyContainer.innerHTML = `<div>${message}</div>`;
-    surveyContainer.style.display = "block";
-}
+            if (emotion === "stressed") {
+                surveyTitle.innerText = "Stressed Survey";
+                surveyQuestions.innerHTML = "<p>What is making you stressed?</p><input type='text' id='response'>";
+            } else if (emotion === "sad") {
+                surveyTitle.innerText = "Sad Survey";
+                surveyQuestions.innerHTML = "<p>Why are you feeling sad?</p><input type='text' id='response'>";
+            } else if (emotion === "unsure") {
+                surveyTitle.innerText = "Unsure Survey";
+                surveyQuestions.innerHTML = "<p>What is making you unsure?</p><input type='text' id='response'>";
+            }
+        });
+    });
 
-function toggleChat() {
-    let chatbox = document.getElementById("chatbox");
-    if (chatbox.classList.contains("active")) {
-        chatbox.classList.remove("active");
-    } else {
-        chatbox.classList.add("active");
-    }
-}
+    document.getElementById("submit-survey").addEventListener("click", function() {
+        surveyContainer.style.display = "none";
+        surveyResponse.style.display = "block";
+        responseMessage.innerText = "Thank you for sharing. It's okay to feel this way. Remember to take breaks and breathe.";
+    });
 
-function sendMessage() {
-    let input = document.getElementById("chat-input");
-    let messages = document.getElementById("chat-messages");
+    const chatBox = document.getElementById("chatbox");
+    document.getElementById("chat-btn").addEventListener("click", function() {
+        chatBox.style.display = "block";
+    });
 
-    if (input.value.trim() !== "") {
-        let userMessage = `<div style="background: white; color: black; padding: 10px; border-radius: 10px; margin-bottom: 10px;">${input.value}</div>`;
-        messages.innerHTML += userMessage;
-        input.value = "";
-    }
-}
+    document.getElementById("close-chat").addEventListener("click", function() {
+        chatBox.style.display = "none";
+    });
+
+    document.getElementById("send-btn").addEventListener("click", function() {
+        let input = document.getElementById("user-input").value;
+        document.getElementById("chat-content").innerHTML += `<p>You: ${input}</p>`;
+        document.getElementById("user-input").value = "";
+    });
+});
+
