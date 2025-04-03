@@ -7,31 +7,39 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="container">
         <h1>Buni! - Your Stress Companion</h1>
-        <p class="subtitle"><strong>Hop into wellness!</strong> Buni will help you discover your best self with a helpful survey!</p>
-        
+        <p class="subtitle"><strong>Hop into wellness! Buni will help you discover your best self with a helpful survey!</strong></p>
         <ul>
             <li>Buni will help promote mindfulness, balance, and resilience!</li>
             <li>A Buni's presence can improve your mood and reduce stress.</li>
         </ul>
-
+        
         <h2>Choose what you are feeling today!</h2>
-
-        <div class="button-group">
-            <button class="feeling-btn" onclick="showAdvice('unsure')">Unsure</button>
-            <button class="feeling-btn" onclick="showAdvice('sad')">Sad</button>
-            <button class="feeling-btn" onclick="showAdvice('stressed')">Stressed</button>
+        <div class="buttons">
+            <button class="btn" onclick="showSurvey('unsure')">Unsure</button>
+            <button class="btn" onclick="showSurvey('sad')">Sad</button>
+            <button class="btn" onclick="showSurvey('stressed')">Stressed</button>
         </div>
 
-        <div id="advice-box" class="hidden">
-            <h3>Buni's Advice</h3>
-            <p id="advice-text"></p>
+        <div id="survey-container" class="survey">
+            <h3 id="survey-title"></h3>
+            <form id="survey-form">
+                <div id="questions"></div>
+                <button type="submit">Submit</button>
+            </form>
         </div>
 
+        <div id="buni-response" class="response"></div>
+    </div>
+
+    <div id="chat-box" class="chat">
+        <h3>Chat with Buni</h3>
+        <div id="chat-log"></div>
+        <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleChat(event)">
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
