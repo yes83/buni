@@ -8,35 +8,25 @@
 </head>
 <body>
     <div class="container">
-        <h1>Buni! - Your Stress Companion</h1>
-        <p class="subtitle"><strong>Hop into wellness! Buni will help you discover your best self with a helpful survey!</strong></p>
-        <ul>
-            <li>Buni will help promote mindfulness, balance, and resilience!</li>
-            <li>A Buni's presence can improve your mood and reduce stress.</li>
-        </ul>
-        
-        <h2>Choose what you are feeling today!</h2>
-        <div class="buttons">
-            <button class="btn" onclick="showSurvey('unsure')">Unsure</button>
-            <button class="btn" onclick="showSurvey('sad')">Sad</button>
-            <button class="btn" onclick="showSurvey('stressed')">Stressed</button>
+        <img src="buni.gif" alt="Buni" class="buni-image">
+        <h1>How are you feeling today?</h1>
+        <div class="button-container">
+            <button class="emotion-button" onclick="showSurvey('stressed')">Stressed</button>
+            <button class="emotion-button" onclick="showSurvey('sad')">Sad</button>
+            <button class="emotion-button" onclick="showSurvey('unsure')">Unsure</button>
+            <button class="emotion-button" onclick="openChat()">Chat with Buni</button>
         </div>
-
-        <div id="survey-container" class="survey">
-            <h3 id="survey-title"></h3>
-            <form id="survey-form">
-                <div id="questions"></div>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
-
-        <div id="buni-response" class="response"></div>
+        <div id="surveyContainer"></div>
     </div>
 
-    <div id="chat-box" class="chat">
-        <h3>Chat with Buni</h3>
-        <div id="chat-log"></div>
-        <input type="text" id="chat-input" placeholder="Type your message..." onkeypress="handleChat(event)">
+    <div id="chatContainer" class="chat-box hidden">
+        <div class="chat-header">
+            <h2>Chat with Buni</h2>
+            <button class="close-chat" onclick="closeChat()">✖</button>
+        </div>
+        <div class="chat-messages"></div>
+        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
     </div>
 
     <script src="script.js"></script>
