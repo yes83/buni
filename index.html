@@ -3,34 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buni Chat</title>
+    <title>Buni - How Are You Feeling?</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
     <div class="container">
-        <img src="buni.gif" alt="Buni GIF" class="buni-gif">
+        <div class="header">
+            <img src="buni.gif" alt="Buni" class="buni-img">
+        </div>
         <h1>How are you feeling today?</h1>
         <div class="button-container">
-            <button class="emotion-btn" id="stressed">Stressed</button>
-            <button class="emotion-btn" id="sad">Sad</button>
-            <button class="emotion-btn" id="unsure">Unsure</button>
-            <button class="emotion-btn" id="chat-buni">Chat with Buni</button>
+            <button class="feel-btn" onclick="showSurvey('stressed')">Stressed</button>
+            <button class="feel-btn" onclick="showSurvey('sad')">Sad</button>
+            <button class="feel-btn" onclick="showSurvey('unsure')">Unsure</button>
+            <button class="feel-btn" onclick="toggleChat()">Chat with Buni</button>
         </div>
+        <div id="survey-container"></div>
     </div>
 
-    <div class="chat-container" id="chat-container">
+    <div id="chatbox" class="chatbox">
         <div class="chat-header">
             <span>Chat with Buni</span>
-            <button class="close-btn" id="close-chat">✖</button>
+            <button class="close-chat" onclick="toggleChat()">×</button>
         </div>
-        <div class="chat-box">
-            <input type="text" id="user-input" placeholder="Type your message...">
-            <button id="send-btn">Send</button>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
         </div>
     </div>
 
     <script src="script.js"></script>
-
 </body>
 </html>
