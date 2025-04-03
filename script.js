@@ -1,35 +1,14 @@
-function showSurvey(type) {
-    document.querySelectorAll('.survey-box').forEach(s => s.style.display = 'none');
-    document.getElementById(`survey-${type}`).style.display = 'block';
-}
+function showAdvice(feeling) {
+    let adviceText = "";
 
-function submitSurvey(type) {
-    alert(`Thank you for your response! Buni is here to support you.`);
-}
+    if (feeling === "unsure") {
+        adviceText = "Feeling unsure is normal. Try breaking things down into smaller steps and talking to a trusted friend or writing down your thoughts.";
+    } else if (feeling === "sad") {
+        adviceText = "It's okay to feel sad. Take time for yourself, engage in activities that make you happy, and don't be afraid to reach out for support.";
+    } else if (feeling === "stressed") {
+        adviceText = "Stress can be overwhelming. Take deep breaths, organize your tasks, and don't hesitate to take breaks. You're doing great!";
+    }
 
-// Chat Functionality
-function openChat() {
-    document.getElementById("chat-popup").style.display = "block";
-    document.getElementById("main-content").style.width = "50%";
-}
-
-function closeChat() {
-    document.getElementById("chat-popup").style.display = "none";
-    document.getElementById("main-content").style.width = "100%";
-}
-
-function sendMessage() {
-    let userInput = document.getElementById("user-input").value;
-    let chatBody = document.getElementById("chat-body");
-
-    if (userInput.trim() === "") return;
-
-    let userMessage = document.createElement("p");
-    userMessage.textContent = userInput;
-    userMessage.style.background = "#c1e1c1";
-    userMessage.style.padding = "8px";
-    userMessage.style.borderRadius = "5px";
-    chatBody.appendChild(userMessage);
-
-    document.getElementById("user-input").value = "";
+    document.getElementById("advice-text").textContent = adviceText;
+    document.getElementById("advice-box").style.display = "block";
 }
