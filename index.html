@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buni - Your Stress Companion</title>
+    <title>Buni Chat</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <img src="buni.gif" alt="Buni" class="buni-image">
-        <h1>How are you feeling today?</h1>
-        <div class="button-container">
-            <button class="emotion-button" onclick="showSurvey('stressed')">Stressed</button>
-            <button class="emotion-button" onclick="showSurvey('sad')">Sad</button>
-            <button class="emotion-button" onclick="showSurvey('unsure')">Unsure</button>
-            <button class="emotion-button" onclick="openChat()">Chat with Buni</button>
-        </div>
-        <div id="surveyContainer"></div>
-    </div>
 
-    <div id="chatContainer" class="chat-box hidden">
-        <div class="chat-header">
-            <h2>Chat with Buni</h2>
-            <button class="close-chat" onclick="closeChat()">✖</button>
+    <div class="container">
+        <div class="header">
+            <img src="buni.gif" alt="Buni" class="buni-gif">
+            <h1>How are you feeling today?</h1>
+            <div class="buttons">
+                <button class="btn" onclick="showSurvey('stressed')">Stressed</button>
+                <button class="btn" onclick="showSurvey('sad')">Sad</button>
+                <button class="btn" onclick="showSurvey('unsure')">Unsure</button>
+                <button class="btn" onclick="toggleChat()">Chat with Buni</button>
+            </div>
         </div>
-        <div class="chat-messages"></div>
-        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">Send</button>
+
+        <div id="survey-container" class="hidden">
+            <p id="survey-question"></p>
+            <button class="btn" onclick="submitSurvey('Yes')">Yes</button>
+            <button class="btn" onclick="submitSurvey('No')">No</button>
+        </div>
+
+        <div id="chat-box" class="hidden">
+            <div class="chat-header">
+                <span>Chat with Buni</span>
+                <button class="close-btn" onclick="toggleChat()">✖</button>
+            </div>
+            <div class="chat-messages"></div>
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
+
 </body>
 </html>
 
