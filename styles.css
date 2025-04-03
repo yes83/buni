@@ -1,100 +1,77 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f8e8ff, #d5b3ff);
     text-align: center;
-    background: linear-gradient(120deg, #fddde6, #c1c8ff);
-    color: #333;
-    margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 40px auto;
+    background: white;
     padding: 20px;
-    background: #fff;
     border-radius: 15px;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.buni-image {
-    width: 120px;
-    margin-top: -20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
 }
 
 h1 {
-    font-size: 32px;
-    font-weight: 800;
-    color: #ff4d6d;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ff5a8a;
 }
 
-.button-container {
+.subtitle {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 18px;
+    color: #ff5a8a;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
     margin-top: 15px;
 }
 
-.emotion-button, .chat-button {
-    background: #ff85a2;
-    padding: 12px 25px;
-    font-size: 18px;
-    font-weight: 600;
+.feeling-btn {
+    background: #ff5a8a;
     color: white;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 10px;
-}
-
-.survey-box {
-    background: #ffeef2;
-    border-radius: 15px;
-    padding: 20px;
-    margin-top: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    display: none;
-}
-
-.survey-box input, .survey-box textarea {
-    width: 80%;
-    padding: 10px;
-    border: 2px solid #ff85a2;
-    border-radius: 10px;
-}
-
-.submit-button {
-    background: #ff85a2;
     border: none;
     padding: 10px 20px;
-    font-size: 18px;
-    color: white;
     border-radius: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.chat-popup {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    background: white;
-    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.1);
-}
-
-.chat-header {
-    background: #ff85a2;
-    color: white;
-    padding: 10px;
+    font-size: 14px;
     font-weight: bold;
-    display: flex;
-    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.chat-body {
-    height: 80%;
-    overflow-y: auto;
-    padding: 10px;
+.feeling-btn:hover {
+    background: #ff3f72;
 }
+
+#advice-box {
+    background: #ffe6ec;
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 10px;
+    display: none;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+#advice-box h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ff5a8a;
+}
+
+.hidden {
+    display: none;
+}
+
 
