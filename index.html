@@ -3,36 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buni - How Are You Feeling?</title>
+    <title>Buni! - Your Stress Companion</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <img src="buni.gif" alt="Buni" class="buni-img">
-        </div>
-        <h1>How are you feeling today?</h1>
+        <header>
+            <img src="buni.png" alt="Buni" class="buni-image">
+            <h1>Buni! - Your Stress Companion</h1>
+            <p>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
+            <p>Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
+        </header>
+
+        <h2>How are you feeling today?</h2>
         <div class="button-container">
-            <button class="feel-btn" onclick="showSurvey('stressed')">Stressed</button>
-            <button class="feel-btn" onclick="showSurvey('sad')">Sad</button>
-            <button class="feel-btn" onclick="showSurvey('unsure')">Unsure</button>
-            <button class="feel-btn" onclick="toggleChat()">Chat with Buni</button>
+            <button class="emotion-btn" data-emotion="stressed">Stressed</button>
+            <button class="emotion-btn" data-emotion="sad">Sad</button>
+            <button class="emotion-btn" data-emotion="unsure">Unsure</button>
+            <button id="chat-btn">Chat with Buni</button>
         </div>
-        <div id="survey-container"></div>
-    </div>
 
-    <div id="chatbox" class="chatbox">
-        <div class="chat-header">
-            <span>Chat with Buni</span>
-            <button class="close-chat" onclick="toggleChat()">×</button>
+        <div id="survey-container" class="hidden">
+            <h3 id="survey-title"></h3>
+            <div id="survey-questions"></div>
+            <button id="submit-survey">Submit</button>
         </div>
-        <div class="chat-messages" id="chat-messages"></div>
-        <div class="chat-input">
-            <input type="text" id="chat-input" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
+
+        <div id="survey-response" class="hidden">
+            <h3>Thank you for sharing.</h3>
+            <p id="response-message"></p>
+        </div>
+
+        <div id="chatbox" class="hidden">
+            <div id="chat-header">
+                <span>Chat with Buni</span>
+                <button id="close-chat">X</button>
+            </div>
+            <div id="chat-content"></div>
+            <div id="chat-input">
+                <input type="text" id="user-input" placeholder="Type your message...">
+                <button id="send-btn">Send</button>
+            </div>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
+
