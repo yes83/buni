@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buni! - Your Stress Companion</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Buni! - Your Stress Companion</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="buni.png" alt="Buni" class="buni-image">
-            <h1>Buni! - Your Stress Companion</h1>
-            <p>Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
-            <p>Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
-        </header>
+  <header>
+    <img src="buni.gif" alt="Buni" class="buni-gif"/>
+    <h1>Buni! – Your Stress Companion</h1>
+    <p class="subtitle">Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
+    <p class="subtitle">Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
+  </header>
 
-        <h2>How are you feeling today?</h2>
-        <div class="button-container">
-            <button class="emotion-btn" data-emotion="stressed">Stressed</button>
-            <button class="emotion-btn" data-emotion="sad">Sad</button>
-            <button class="emotion-btn" data-emotion="unsure">Unsure</button>
-            <button id="chat-btn">Chat with Buni</button>
-        </div>
-
-        <div id="survey-container" class="hidden">
-            <h3 id="survey-title"></h3>
-            <div id="survey-questions"></div>
-            <button id="submit-survey">Submit</button>
-        </div>
-
-        <div id="survey-response" class="hidden">
-            <h3>Thank you for sharing.</h3>
-            <p id="response-message"></p>
-        </div>
-
-        <div id="chatbox" class="hidden">
-            <div id="chat-header">
-                <span>Chat with Buni</span>
-                <button id="close-chat">X</button>
-            </div>
-            <div id="chat-content"></div>
-            <div id="chat-input">
-                <input type="text" id="user-input" placeholder="Type your message...">
-                <button id="send-btn">Send</button>
-            </div>
-        </div>
+  <main>
+    <h2>How are you feeling today?</h2>
+    <div class="button-container">
+      <button onclick="showSurvey('stressed')">Stressed</button>
+      <button onclick="showSurvey('sad')">Sad</button>
+      <button onclick="showSurvey('unsure')">Unsure</button>
+      <button onclick="toggleChat()">Chat with Buni</button>
     </div>
-    <script src="script.js"></script>
+
+    <div id="survey" class="survey-box hidden">
+      <h3 id="survey-title"></h3>
+      <p id="survey-question"></p>
+      <input type="text" id="survey-answer" placeholder="Your response..." />
+      <button onclick="submitSurvey()">Submit</button>
+    </div>
+
+    <div id="thank-you" class="thank-you hidden">
+      <h3>Thank you for sharing.</h3>
+      <p>It sounds like you're dealing with a lot. Try taking deep breaths and taking breaks.</p>
+    </div>
+
+    <div id="chatbox" class="chatbox hidden">
+      <div class="chat-header">
+        <span>Chat with Buni</span>
+        <button onclick="toggleChat()">×</button>
+      </div>
+      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-input">
+        <input type="text" id="user-input" placeholder="Type your message here..." />
+        <button onclick="sendMessage()">Send</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
+
