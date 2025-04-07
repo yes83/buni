@@ -1,48 +1,42 @@
 function showSurvey(type) {
-  document.getElementById("survey").classList.remove("hidden");
-  document.getElementById("thank-you").classList.add("hidden");
-  document.getElementById("survey-answer").value = "";
+  let question = '';
+  if (type === 'stressed') question = "What's making you feel stressed?";
+  else if (type === 'sad') question = "What’s making you feel sad?";
+  else if (type === 'unsure') question = "What is making you unsure?";
 
-  const title = document.getElementById("survey-title");
-  const question = document.getElementById("survey-question");
-
-  if (type === "stressed") {
-    title.innerText = "Stressed Survey";
-    question.innerText = "What’s making you feel stressed?";
-  } else if (type === "sad") {
-    title.innerText = "Sad Survey";
-    question.innerText = "Why are you feeling sad today?";
-  } else if (type === "unsure") {
-    title.innerText = "Unsure Survey";
-    question.innerText = "What is making you unsure?";
-  }
+  document.getElementById('survey-container').innerHTML = `
+    <div class="survey-box">
+      <h3>${question}</h3>
+      <input type="text" placeholder="Your response..." />
+      <br />
+      <button onclick="submitSurvey()">Submit</button>
+    </div>
+  `;
 }
 
 function submitSurvey() {
-  document.getElementById("survey").classList.add("hidden");
-  document.getElementById("thank-you").classList.remove("hidden");
+  document.getElementById('survey-container').innerHTML = `
+    <div class="survey-box">
+      <h3>Thank you for sharing.</h3>
+      <p>It sounds like you're dealing with a lot. Try taking deep breaths and taking breaks.</p>
+    </div>
+  `;
 }
 
 function toggleChat() {
-  const chatbox = document.getElementById("chatbox");
-  chatbox.classList.toggle("hidden");
+  const chat = document.getElementById('chatbox');
+  chat.classList.toggle('hidden');
 }
 
 function sendMessage() {
-  const input = document.getElementById("user-input");
-  const message = input.value.trim();
-  const messages = document.getElementById("chat-messages");
+  const input = document.getElementById('user-input');
+  const msg = input.value.trim();
+  if (msg === '') return;
 
-  if (message === "") return;
-
-  const userMessage = document.createElement("div");
-  userMessage.textContent = "You: " + message;
-  messages.appendChild(userMessage);
-
-  const buniMessage = document.createElement("div");
-  buniMessage.textContent = "Buni: I'm here for you 💖 Take a breath, you've got this.";
-  messages.appendChild(buniMessage);
-
-  input.value = "";
-  messages.scrollTop = messages.scrollHeight;
+  const chat = document.getElementById('chat-messages');
+  chat.innerHTML += `<div><strong>You:</strong> ${msg}</div>`;
+  chat.innerHTML += `<div><strong>Buni:</strong> I hear you. Take a deep breath. 🌸</div>`;
+  input.value = '';
+  chat.scrollTop = chat.scrollHeight;
 }
+
