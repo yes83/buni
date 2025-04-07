@@ -3,51 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Buni! - Your Stress Companion</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Buni - Your Stress Companion</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header>
+  <div class="container">
     <img src="buni.gif" alt="Buni" class="buni-gif"/>
     <h1>Buni! – Your Stress Companion</h1>
-    <p class="subtitle">Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
-    <p class="subtitle">Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
-  </header>
+    <p class="tagline">Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
+    <p class="tagline">Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
 
-  <main>
     <h2>How are you feeling today?</h2>
-    <div class="button-container">
+    <div class="button-group">
       <button onclick="showSurvey('stressed')">Stressed</button>
       <button onclick="showSurvey('sad')">Sad</button>
       <button onclick="showSurvey('unsure')">Unsure</button>
       <button onclick="toggleChat()">Chat with Buni</button>
     </div>
 
-    <div id="survey" class="survey-box hidden">
-      <h3 id="survey-title"></h3>
-      <p id="survey-question"></p>
-      <input type="text" id="survey-answer" placeholder="Your response..." />
-      <button onclick="submitSurvey()">Submit</button>
-    </div>
-
-    <div id="thank-you" class="thank-you hidden">
-      <h3>Thank you for sharing.</h3>
-      <p>It sounds like you're dealing with a lot. Try taking deep breaths and taking breaks.</p>
-    </div>
+    <div id="survey-container"></div>
 
     <div id="chatbox" class="chatbox hidden">
-      <div class="chat-header">
-        <span>Chat with Buni</span>
-        <button onclick="toggleChat()">×</button>
-      </div>
-      <div id="chat-messages" class="chat-messages"></div>
+      <div class="chat-header">Chat with Buni</div>
+      <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input">
-        <input type="text" id="user-input" placeholder="Type your message here..." />
+        <input type="text" id="user-input" placeholder="Type your message..." />
         <button onclick="sendMessage()">Send</button>
       </div>
     </div>
-  </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
