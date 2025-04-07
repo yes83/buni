@@ -4,37 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Buni - Your Stress Companion</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <img src="buni.gif" alt="Buni" class="buni-gif"/>
-    <h1>Buni! – Your Stress Companion</h1>
-    <p class="tagline">Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
-    <p class="tagline">Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
+  <div class="main-container">
+    <header>
+      <img src="buni.gif" alt="Buni" class="buni-img">
+      <h1>Buni! – Your Stress Companion</h1>
+      <p class="tagline">Hop into wellness! Our bunny will help you discover your best self with a helpful survey!</p>
+      <p class="tagline">Buni will help promote mindfulness, balance, and resilience! A Buni's presence can improve your mood and reduce stress.</p>
+    </header>
 
-    <h2>How are you feeling today?</h2>
-    <div class="button-group">
-      <button onclick="showSurvey('stressed')">Stressed</button>
-      <button onclick="showSurvey('sad')">Sad</button>
-      <button onclick="showSurvey('unsure')">Unsure</button>
-      <button onclick="toggleChat()">Chat with Buni</button>
-    </div>
+    <section class="button-section">
+      <h2>How are you feeling today?</h2>
+      <div class="feelings-buttons">
+        <button onclick="showSurvey('stressed')">Stressed</button>
+        <button onclick="showSurvey('sad')">Sad</button>
+        <button onclick="showSurvey('unsure')">Unsure</button>
+        <button onclick="toggleChat()">Chat with Buni</button>
+      </div>
+    </section>
 
-    <div id="survey-container"></div>
+    <div id="survey-container" class="survey-box" style="display:none;"></div>
 
-    <div id="chatbox" class="chatbox hidden">
-      <div class="chat-header">Chat with Buni</div>
+    <div id="chat-box" class="chat-box" style="display:none;">
+      <h3>Chat with Buni</h3>
       <div class="chat-messages" id="chat-messages"></div>
       <div class="chat-input">
-        <input type="text" id="user-input" placeholder="Type your message..." />
+        <input type="text" id="chat-input" placeholder="Type your message...">
         <button onclick="sendMessage()">Send</button>
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    function showSurvey(feeling) {
+      const surveyContainer = document.getElementById("survey-container");
+      surveyContainer.style.display = "block";
+
+      let question = "";
+      if (feeling === "stressed") question = "What’s making you feel stressed?";
+      else if (feeling === "sad") question = "What’s making you feel sad?";
+      else if (feeling === "unsure") question = "What is making you unsure?";
+
+      surveyContainer.innerHTML = `
+        <form onsubmit="handleSurveySubmit(event)">
+          <h3>${question}</h3>
+          <input type="text" name="response" placeholder="Your response..." required>
+          <button type="submit">Submit</button>
+        </form>
+      `;
+    }
+
+    function handleSurveySubmit(event) {
+      event.preventDefault();
+      const response = event.target.response.value;
+      const surveyContainer = document.getElementById("survey-container");
+      surveyContainer.innerHTML = `
+        <h3>Thank you for sharing.</h3>
+        <p>It sounds like you're dealing with a lot. Try taking deep breaths and taking breaks.</p>
+      `;
+    }
+
+    function toggleChat() {
+      const chatBox = document.getElementById("chat-box");
+      chatBox.style.display = chatBox.style.display === "block" ? "none" : "block";
+    }
+
+    function sendMessage() {
+      const input = document.getElementById("chat-input");
+      const message = input.value.trim();
+      if (message !== "") {
+        const messages = document.getElementById("chat-messages");
+        messages.innerHTML += `<div class="user-msg">${message}</div>`;
+        messages.innerHTML += `<div class="buni-msg">Buni says: I'm here for you. Let's take a deep breath together 🫶</div>`;
+        input.value = "";
+        messages.scrollTop = messages.scrollHeight;
+      }
+    }
+  </script>
 </body>
 </html>
 
